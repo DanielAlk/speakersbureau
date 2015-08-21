@@ -35,5 +35,10 @@
   <img src="<%= @speaker.avatar(:big) %>">
 </p>
 
+<p>
+  <strong>Image:</strong>
+  <img src="<%= @speaker.images %>">
+</p>
+
 <%= link_to 'Edit', edit_speaker_path(@speaker) %> |
 <%= link_to 'Back', speakers_path %>

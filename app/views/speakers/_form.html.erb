@@ -39,6 +39,10 @@
     <%= f.label :avatar %><br>
     <%= f.file_field :avatar %>
   </div>
+  <div class="field">
+    <%= f.label :speaker_images %><br>
+    <%= f.file_field :speaker_images, :multiple => true %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

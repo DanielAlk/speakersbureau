@@ -1,5 +1,6 @@
 class SpeakersController < ApplicationController
   before_action :set_speaker, only: [:show, :edit, :update, :destroy]
+  before_action :create_images_object, only: [:create, :update]
 
   # GET /speakers
   # GET /speakers.json
@@ -69,6 +70,10 @@ class SpeakersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def speaker_params
-      params.require(:speaker).permit(:name, :last_name, :email, :description, :information, :twitter, :avatar)
+      params.require(:speaker).permit(:name, :last_name, :email, :description, :information, :twitter, :avatar, :speaker_images)
+    end
+
+    def create_images_object
+      debugger
     end
 end
