@@ -6,7 +6,8 @@ class Speaker < ActiveRecord::Base
 
 	def slug_candidates
 		[
-			[:name, :last_name]
+			[:name, :last_name],
+			[:name, :last_name, :id]
 		]
 	end
 end
