@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Speakers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Description</th>
+      <th>Information</th>
+      <th>Twitter</th>
+      <th>Slug</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @speakers.each do |speaker| %>
+      <tr>
+        <td><%= speaker.name %></td>
+        <td><%= speaker.last_name %></td>
+        <td><%= speaker.email %></td>
+        <td><%= speaker.description %></td>
+        <td><%= speaker.information %></td>
+        <td><%= speaker.twitter %></td>
+        <td><%= speaker.slug %></td>
+        <td><%= link_to 'Show', speaker %></td>
+        <td><%= link_to 'Edit', edit_speaker_path(speaker) %></td>
+        <td><%= link_to 'Destroy', speaker, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Speaker', new_speaker_path %>
