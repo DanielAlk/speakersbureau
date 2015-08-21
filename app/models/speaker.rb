@@ -18,10 +18,13 @@ class Speaker < ActiveRecord::Base
 		self.speaker_images
 	end
 
+	def full_name
+		self.name + ' ' + self.last_name
+	end
+
 	def slug_candidates
 		[
-			[:name, :last_name],
-			[:name, :last_name, :id]
+			[:name, :last_name]
 		]
 	end
 end

@@ -74,6 +74,5 @@ class SpeakersController < ApplicationController
     end
 
     def create_images_object
-      debugger
     end
 end
