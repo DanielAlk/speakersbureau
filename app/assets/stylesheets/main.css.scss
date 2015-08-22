@@ -1,0 +1,89 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+$primary-color: #D61B16;
+$primary-color-dark: #79110F;
+$default-color: #3e3e3e;
+$grey: #d3d3d3;
+$dark-grey: #bbbbbb;
+
+body { font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 16px; color: $default-color; padding-bottom: 100px; }
+
+/* TEXT */
+small { font-weight: 300; }
+/* TEXT COLORS */
+.primary { color: $primary-color; }
+
+/* LINKS */
+a { color: $primary-color; text-decoration: underline; }
+a.btn, .dropdown-toggle a { text-decoration: none; }
+a:hover, a:focus { color: $primary-color-dark; }
+/* arrow-right */
+a.arrow-right { font-style: italic; }
+a.arrow-right:after { content: '>'; text-decoration: none; display: inline-block; margin-left: 5px; }
+
+/* BUTTONS */
+.btn { text-transform: uppercase; border-radius: 0; padding: 6px 20px; border: none; }
+.btn-primary { background-color: $primary-color; }
+.btn-invert { color: $primary-color; background-color: #FFF; }
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle { 
+	background-color: $primary-color-dark;
+}
+.btn-invert:hover, .btn-invert:focus, .btn-invert:active, .btn-invert.active, .open > .btn-invert.dropdown-toggle {
+	color: $primary-color-dark;
+}
+/* cancel button functionality on spans */
+span.btn { cursor: initial; }
+span.btn-primary:hover, span.btn-primary:focus { background-color: $primary-color; }
+/* BUTTON GROUPS */
+.btn-group-justified { padding: 5px; background-color: $grey; }
+.btn-group-justified>.btn-group:not(:last-child) { padding-right: 5px; }
+.btn-group-justified .btn { text-transform: none; padding-top: 9px; padding-bottom: 9px; }
+.btn-group-justified .form-control { border: none; border-radius: 0; height: 38px; }
+.btn-group-justified .search-group .glyphicon { position: absolute; margin: 12px 0 0 18px; color: $primary-color; }
+.btn-group-justified .search-group .form-control { padding-left: 45px; }
+/* DROPDOWN BTNS */
+.btn .caret { position: absolute; right: 0; top: 0; margin: 17px; border-width: 5px; }
+.dropdown-toggle { border: 1px solid $dark-grey; }
+.dropdown-toggle:before, .dropdown-toggle:after {
+	content: ''; position: absolute; display: block; bottom: 0; right: 17px; border: 5px solid transparent;
+}
+.dropdown-toggle:before { border-bottom-color: $dark-grey; }
+.dropdown-toggle:after { border-bottom-color: $grey; bottom: -1px; }
+.dropdown-menu {
+	width: 98%;
+	border-radius: 0;
+}
+
+/* TITLES */
+/* border-bottom-arrow */
+.border-bottom-arrow { 
+	display: inline-block; border-bottom: 1px solid $primary-color; font-size: 38px; position: relative; margin-top: 10px;
+}
+.border-bottom-arrow:before {
+	content: ''; position: absolute; display: block; bottom: 0; left: 50%; margin-bottom: -10px; 
+	margin-left: -5px; border: 5px solid; border-top-color: #FFF;
+}
+.border-bottom-arrow:after {
+	content: ''; position: absolute; display: block; bottom: 0; left: 50%; margin-bottom: -11.2px; 
+	margin-left: -5px; border: 5px solid; border-color: #FFF; border-top-color: transparent;
+}
+
+/* IMAGES */
+img.cover { width: 100%; height: auto; }
+
+/* NAVBAR */
+.navbar-fixed-top { position: absolute; }
+.navbar { min-height: 70px; margin-bottom: 0; font-size: 14px; padding-top: 15px; padding-bottom: 15px; }
+.navbar-brand { height: 70px; }
+.navbar-default { background-color: transparent; border-color: transparent; }
+.navbar .logo-main { height: 45px; width: auto; }
+.navbar-default .navbar-nav > li > a { color: #FFF; text-transform: uppercase; font-weight: 300; text-decoration: none; }
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus { color: $primary-color; }
+.navbar-toggle { margin-top: 17px; margin-bottom: 17px; } 
+@media (min-width: 768px) {
+	.navbar-nav { margin: 7px; }
+}
+@media (min-width: 992px) {
+	.navbar-nav { margin-left: 50px; }
+}

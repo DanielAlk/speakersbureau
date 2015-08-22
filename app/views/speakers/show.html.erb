@@ -44,7 +44,9 @@
 
 <p>
   <strong>Image:</strong>
-  <%= speaker_images(:thumb) %>
+  <% @speaker.images(:thumb).each do |image| %>
+    <%= image_tag image %>
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_speaker_path(@speaker) %> |

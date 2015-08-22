@@ -1,0 +1,34 @@
+<div class="container speaker-search-bar">
+	<div class="btn-group btn-group-justified" role="group">
+    <div class="btn-group" role="group">
+    	<span class="btn btn-primary" role="button">Encuentra un speaker</span>
+    </div>
+    <div class="btn-group" role="group">
+      <a href="#" class="btn btn-invert dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        Por nombre <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+      	<% @speakers.each do |speaker| %>
+      		<li><a href="#"><%= speaker.full_name %></a></li>
+      	<% end %>
+      </ul>
+    </div>
+    <div class="btn-group" role="group">
+      <a href="#" class="btn btn-invert dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        Por tema <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+      	<% @areas.each do |area| %>
+      		<li><a href="#"><%= area.title %></a></li>
+      	<% end %>
+      </ul>
+    </div>
+  	<div class="btn-group search-group" role="group">
+  		<span class="glyphicon glyphicon-search"></span>
+  		<input type="text" class="form-control" placeholder="Por palabra">
+  	</div>
+    <div class="btn-group" role="group">
+    	<a href="#" class="btn btn-primary" role="button">Buscar</a>
+    </div>
+  </div>
+</div>

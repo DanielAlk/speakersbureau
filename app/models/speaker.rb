@@ -9,12 +9,22 @@ class Speaker < ActiveRecord::Base
 	has_many :speaker_videos, :dependent => :destroy
 	has_many :areas, through: :speaker_areas
 
+	def full_name
+		self.name + ' ' + self.last_name
+	end
+
 	def images(style = nil)
 		images = []
 		self.speaker_images.each do |si|
 			images << si.image(style)
 		end
+		images << "speaker-image-default-#{style}.jpg" unless images.present?
 		return images
+	end
+
+	def profile_image(style = nil)
+		img = self.speaker_images.first
+		return img.present? ? img.image(style) : "speaker-image-default-#{style}.jpg"
 	end
 
 	def videos
@@ -23,10 +33,6 @@ class Speaker < ActiveRecord::Base
 			videos << sv.url
 		end
 		return videos
-	end
-
-	def full_name
-		self.name + ' ' + self.last_name
 	end
 
 	private
