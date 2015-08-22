@@ -9,8 +9,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<%= render 'layouts/navigation' %>
+	<%= yield %>
 
-<%= yield %>
-
+<script>
+  $(function() {
+    <% if content_for? :extra_js %>
+      <%= yield :extra_js %>
+    <% end %>
+  });
+</script>
 </body>
 </html>

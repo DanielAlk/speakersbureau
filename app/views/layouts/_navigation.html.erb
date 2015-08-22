@@ -1,0 +1,26 @@
+<!-- Fixed navbar -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%= root_path %>">
+        <%= image_tag 'logo-main.png', alt: 'Speakers Bureau' %>
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="<%= nav_class 'speakers' %>"><a href="<%= speakers_path %>">Speakers</a></li>
+        <li class="<%= nav_class 'areas' %>"><a href="<%= areas_path %>">Area</a></li>
+        <li class="<%= nav_class 'posts' %>"><a href="<%= posts_path %>">Blog</a></li>
+        <li class="<%= nav_class 'asociados' %>"><a href="#">Tv&amp;Asociados</a></li>
+        <li class="<%= nav_class 'contacto' %>"><a href="#">Contacto</a></li>
+      </ul>
+      <!--ul class="nav navbar-nav navbar-right"> </ul-->
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
