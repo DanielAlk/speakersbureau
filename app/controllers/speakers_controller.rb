@@ -28,6 +28,15 @@ class SpeakersController < ApplicationController
 
     respond_to do |format|
       if @speaker.save
+        if params['speaker_images']
+          params['speaker_images'].each do |image|
+            @speaker.speaker_images.create(image: image)
+          end
+        end
+        if params['speaker_areas']
+          area = Area.find_by(:title => params['speaker_areas']) || Area.create(:title => params['speaker_areas'])
+          @speaker.speaker_areas.create(area: area)
+        end
         format.html { redirect_to @speaker, notice: 'Speaker was successfully created.' }
         format.json { render :show, status: :created, location: @speaker }
       else

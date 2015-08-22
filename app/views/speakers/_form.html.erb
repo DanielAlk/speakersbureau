@@ -39,6 +39,14 @@
     <%= f.label :avatar %><br>
     <%= f.file_field :avatar %>
   </div>
+  <div class="field">
+    <%= label_tag 'speaker_images_' %><br>
+    <%= file_field_tag 'speaker_images[]', multiple: true %>
+  </div>
+  <div class="field">
+    <%= label_tag 'speaker_areas' %><br>
+    <%= text_field_tag 'speaker_areas' %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

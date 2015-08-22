@@ -31,8 +31,21 @@
 </p>
 
 <p>
+  <strong>Areas:</strong>
+  <% @speaker.areas.each_with_index do |a, i| %>
+    <%= a.title %>
+    <%= ' ' if i > 0 %>
+  <% end %>
+</p>
+
+<p>
   <strong>Avatar:</strong>
   <img src="<%= @speaker.avatar(:big) %>">
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <img src="<%= @speaker.images(:standard).first %>">
 </p>
 
 <%= link_to 'Edit', edit_speaker_path(@speaker) %> |

@@ -4,18 +4,21 @@ class Speaker < ActiveRecord::Base
 	has_attached_file :avatar, styles: { big: "1600x400#" }
 	validates_attachment_content_type :avatar, content_type: /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/
 
-	has_many :speaker_areas
+	has_many :speaker_areas, :dependent => :destroy
+	has_many :speaker_images, :dependent => :destroy
+	has_many :speaker_videos, :dependent => :destroy
 	has_many :areas, through: :speaker_areas
-
-	has_many :speaker_images
-	has_many :speaker_videos
 
 	def videos
 		self.speaker_videos
 	end
 
-	def images
-		self.speaker_images
+	def images(type = nil)
+		images = []
+		self.speaker_images.each do |si|
+			images << si.image(type)
+		end
+		return images
 	end
 
 	def full_name

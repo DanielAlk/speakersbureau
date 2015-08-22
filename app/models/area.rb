@@ -7,8 +7,7 @@ class Area < ActiveRecord::Base
 
 	def slug_candidates
 		[
-			[:title],
-			[:title, :id]
+			[:title]
 		]
 	end
 end
