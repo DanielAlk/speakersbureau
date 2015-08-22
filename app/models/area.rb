@@ -5,9 +5,10 @@ class Area < ActiveRecord::Base
   has_many :speaker_areas, :dependent => :destroy
 	has_many :speakers, through: :speaker_areas
 
-	def slug_candidates
-		[
-			[:title]
-		]
-	end
+	private
+		def slug_candidates
+			[
+				:title
+			]
+		end
 end

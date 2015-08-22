@@ -29,9 +29,10 @@ class Speaker < ActiveRecord::Base
 		self.name + ' ' + self.last_name
 	end
 
-	def slug_candidates
-		[
-			[:name, :last_name]
-		]
-	end
+	private
+		def slug_candidates
+			[
+				[:name, :last_name]
+			]
+		end
 end
