@@ -22,7 +22,7 @@
 
 <p>
   <strong>Information:</strong>
-  <%= @speaker.information %>
+  <%= @speaker.information.html_safe %>
 </p>
 
 <p>
@@ -33,8 +33,7 @@
 <p>
   <strong>Areas:</strong>
   <% @speaker.areas.each_with_index do |a, i| %>
-    <%= a.title %>
-    <%= ' ' if i > 0 %>
+    <%= a.title + (i != @speaker.areas.count-1 ? ', ' : '.') %>
   <% end %>
 </p>
 
@@ -45,7 +44,9 @@
 
 <p>
   <strong>Image:</strong>
-  <img src="<%= @speaker.images(:standard).first %>">
+  <% @speaker.images(:thumbnail).each_with_index do |image, i| %>
+    <img src="<%= image %>">
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_speaker_path(@speaker) %> |

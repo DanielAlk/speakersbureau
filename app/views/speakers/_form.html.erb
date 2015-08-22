@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :information %><br>
-    <%= f.text_area :information %>
+    <%= f.text_area :information, class: 'text-edit' %>
   </div>
   <div class="field">
     <%= f.label :twitter %><br>
@@ -44,8 +44,8 @@
     <%= file_field_tag 'speaker_images[]', multiple: true %>
   </div>
   <div class="field">
-    <%= label_tag 'speaker_areas' %><br>
-    <%= text_field_tag 'speaker_areas' %>
+    <%= label_tag 'speaker_areas_' %><br>
+    <%= text_field_tag 'speaker_areas[]' %>
   </div>
   <div class="actions">
     <%= f.submit %>

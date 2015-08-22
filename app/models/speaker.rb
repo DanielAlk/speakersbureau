@@ -9,16 +9,20 @@ class Speaker < ActiveRecord::Base
 	has_many :speaker_videos, :dependent => :destroy
 	has_many :areas, through: :speaker_areas
 
-	def videos
-		self.speaker_videos
-	end
-
 	def images(type = nil)
 		images = []
 		self.speaker_images.each do |si|
 			images << si.image(type)
 		end
 		return images
+	end
+
+	def videos
+		videos = []
+		self.speaker_videos.each do |sv|
+			videos << sv.url
+		end
+		return videos
 	end
 
 	def full_name
