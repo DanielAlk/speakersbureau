@@ -14,7 +14,8 @@ class Post < ActiveRecord::Base
   end
 
   def short_body
-  	self.body[0, 500]
+  	body = self.body[0, 500]
+    body[0 , body.rindex(/\s/)]
   end
 
   private

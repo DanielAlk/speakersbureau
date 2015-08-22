@@ -1,0 +1,11 @@
+<div class="container speaker-thumbs hidden-xs">
+	<div class="row">
+		<% speakers.each do |speaker| %>
+			<div class="col-xs-1">
+				<%= link_to speaker do %>
+					<%= image_tag speaker.profile_image(:thumb), class: 'cover', title: speaker.full_name, data: { toggle: 'tooltip', placement: 'bottom' } %>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+</div>

@@ -7,9 +7,10 @@
 <body>
 	<%= render 'layouts/navigation' %>
 	<%= yield %>
-
+	<%= render 'layouts/footer' %>
 <script>
   $(function() {
+    $('[data-toggle="tooltip"]').tooltip();
     <% if content_for? :extra_js %>
       <%= yield :extra_js %>
     <% end %>

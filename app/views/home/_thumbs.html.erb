@@ -1,9 +1,0 @@
-<div class="container speaker-thumbs">
-	<div class="row">
-		<% @speakers.sample(12).each do |speaker| %>
-			<div class="col-xs-1">
-				<%= image_tag speaker.profile_image(:thumb), class: 'cover' %>
-			</div>
-		<% end %>
-	</div>
-</div>

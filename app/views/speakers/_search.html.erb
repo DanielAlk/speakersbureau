@@ -9,7 +9,7 @@
       </a>
       <ul class="dropdown-menu">
       	<% @speakers.each do |speaker| %>
-      		<li><a href="#"><%= speaker.full_name %></a></li>
+      		<li><%= link_to speaker.full_name, speaker_path(speaker) %></li>
       	<% end %>
       </ul>
     </div>
@@ -19,7 +19,7 @@
       </a>
       <ul class="dropdown-menu">
       	<% @areas.each do |area| %>
-      		<li><a href="#"><%= area.title %></a></li>
+      		<li><%= link_to area.title, area_path(area) %></a></li>
       	<% end %>
       </ul>
     </div>

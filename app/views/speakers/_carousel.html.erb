@@ -3,12 +3,12 @@
 <div id="speakersBureauCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <% @speakers_for_carousel.each_with_index do |speaker, i| %>
+    <% speakers.each_with_index do |speaker, i| %>
       <li data-target="#speakersBureauCarousel" data-slide-to="<%= i %>" class="<%= 'active' if i == 0 %>"></li>
     <% end %>
   </ol>
   <div class="carousel-inner" role="listbox">
-    <% @speakers_for_carousel.each_with_index do |speaker, i| %>
+    <% speakers.each_with_index do |speaker, i| %>
       <div class="item <%= 'active' if i == 0 %>">
         <%= image_tag 'shadow-layer.png', class: 'shadow-layer' %>
         <%= image_tag speaker.avatar(:big) %>

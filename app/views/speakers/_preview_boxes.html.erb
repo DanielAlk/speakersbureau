@@ -1,0 +1,14 @@
+<div class="container preview-speakers">
+	<div class="row">
+		<% speakers.each do |speaker| %>
+			<div class="col-xs-12 col-sm-6 col-md-4">
+				<div class="speaker-preview-box">
+					<%= image_tag speaker.profile_image(:standard), class: 'cover' %>
+					<h3 class="primary"><%= speaker.full_name %></h3>
+					<p><%= speaker.description %></p>
+					<%= link_to 'Leer mas', speaker, class: 'arrow-right' %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
