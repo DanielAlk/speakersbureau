@@ -31,9 +31,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 gem 'tinymce-rails'
-gem "paperclip", "~> 4.3"
+gem 'will_paginate', '~> 3.0'
+gem 'paperclip', '~> 4.3'
 gem 'friendly_id', '~> 5.1.0'
 
 group :development, :test do
