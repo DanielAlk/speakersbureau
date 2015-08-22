@@ -1,7 +1,7 @@
 class Speaker < ActiveRecord::Base
 	extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
-	has_attached_file :avatar, styles: { big: "1600x400#" }
+	has_attached_file :avatar, styles: { big: "1600x663#" }, default_url: "speaker-avatar-default.jpg"
 	validates_attachment_content_type :avatar, content_type: /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/
 
 	has_many :speaker_areas, :dependent => :destroy
@@ -9,10 +9,10 @@ class Speaker < ActiveRecord::Base
 	has_many :speaker_videos, :dependent => :destroy
 	has_many :areas, through: :speaker_areas
 
-	def images(type = nil)
+	def images(style = nil)
 		images = []
 		self.speaker_images.each do |si|
-			images << si.image(type)
+			images << si.image(style)
 		end
 		return images
 	end

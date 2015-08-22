@@ -39,14 +39,12 @@
 
 <p>
   <strong>Avatar:</strong>
-  <img src="<%= @speaker.avatar(:big) %>">
+  <%= image_tag @speaker.avatar(:big) %>
 </p>
 
 <p>
   <strong>Image:</strong>
-  <% @speaker.images(:thumbnail).each_with_index do |image, i| %>
-    <img src="<%= image %>">
-  <% end %>
+  <%= speaker_images(:thumb) %>
 </p>
 
 <%= link_to 'Edit', edit_speaker_path(@speaker) %> |
