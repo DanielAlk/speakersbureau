@@ -23,6 +23,11 @@ a:hover, a:focus { color: $primary-color-dark; }
 /* arrow-right */
 a.arrow-right { font-style: italic; text-decoration: underline; }
 a.arrow-right:after { content: '>'; text-decoration: none; display: inline-block; margin-left: 5px; }
+a.arrow-back { color: #FFF; font-size: 16px; font-weight: 300; }
+a.arrow-back:before {
+	content: '<'; border: 1px solid #FFF; display: inline-block; border-radius: 50%; font-size: 16px;
+	margin-right: 5px; width: 18px; height: 18px; text-align: center; vertical-align: bottom;
+}
 
 /* BUTTONS */
 .btn { text-transform: uppercase; border-radius: 0; padding: 6px 20px; border: none; }

@@ -1,14 +1,17 @@
 .container.speaker-thumbs .row { margin-right: -9px; margin-left: -9px; }
 .container.speaker-thumbs .row>div { padding-left: 9px; padding-right: 9px; }
 
+.container.post-show { margin-bottom: 50px; }
+
 .video-box { padding: 0 45px; margin-bottom: 45px; }
+
+.youtube-video { position: relative; padding-bottom: 55%; }
+.youtube-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 .container.highlighted-post { margin-top: 50px; margin-bottom: 50px; }
 .post-date { margin-top: 0px; margin-bottom: 20px; }
-.highlighted-post-video, .video-box .video { position: relative; padding-bottom: 55%; }
-.highlighted-post-video iframe, .video-box .video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 @media(max-width: 991px) {
-	.highlighted-post-video { margin: 10px 0 15px; }
+	.highlighted-post .youtube-video { margin: 10px 0 15px; }
 }
 
 /* SPEAKER SEARCH BAR */
@@ -33,12 +36,18 @@
 	.speaker-preview-box { margin-bottom: 50px; }
 }
 
+/* POSTS PREVIEW */
+.preview-posts h2 { margin-top: 0; }
+
 /* SECTION IMAGES */
 .section-image, .section-speaker-profile { margin-bottom: 30px; }
 .section-image { color: #FFF; height: 215px; background-size: cover; background-position: center top; }
 .section-image h2 { margin-top: 160px; }
 .section-image.speakers { background-image: url('<%= asset_path 'section-speakers.jpg' %>'); }
 .section-image.areas { background-image: url('<%= asset_path 'section-areas.jpg' %>'); }
+.section-image.posts { background-image: url('<%= asset_path 'section-posts.jpg' %>'); }
+
+.section-image.posts a.arrow-back { margin: 14px 0 0; }
 
 .section-speaker-profile { position: relative; height: 490px; overflow: hidden; }
 .section-speaker-profile-caption {

@@ -1,17 +1,25 @@
 <div class="container highlighted-post">
 	<div class="row visible-xs visible-sm">
 		<div class="col-xs-12">
-			<h2 class="border-bottom-arrow primary">Destacado</h2>
+			<% unless defined? show_title and show_title %>
+				<h2 class="border-bottom-arrow primary">Destacado</h2>
+			<% else %>
+				<h2 class="primary"><%= post.title %></h2>
+			<% end %>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-7">
-			<div class="highlighted-post-video">
+			<div class="youtube-video">
 				<iframe src="<%= post.video_url %>" frameborder="0" allowfullscreen></iframe>
 			</div>
 		</div>
 		<div class="col-md-5">
-			<h2 class="border-bottom-arrow primary hidden-xs hidden-sm">Destacado</h2>
+			<% unless defined? show_title and show_title %>
+				<h2 class="border-bottom-arrow primary hidden-xs hidden-sm">Destacado</h2>
+			<% else %>
+				<h2 class="primary hidden-xs hidden-sm"><%= post.title %></h2>
+			<% end %>
 			<h3 class="post-date"><%= post.date %> <small>TB&amp;ASOC.</small></h3>
 			<p><%= strip_tags(post.short_body).html_safe + '...' %></p>
 			<%= link_to 'Leer mas', post, class: 'arrow-right' %>

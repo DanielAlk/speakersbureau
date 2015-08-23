@@ -44,7 +44,7 @@
         <div role="tabpanel" class="tab-pane" id="videos">
           <% @speaker.videos.each do |video| %>
             <div class="video-box">
-              <div class="video">
+              <div class="youtube-video">
                 <iframe src="<%= video[:url] %>" frameborder="0" allowfullscreen></iframe>
               </div>
               <h3 class="primary"><%= video[:title] %></h3>
