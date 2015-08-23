@@ -1,51 +1,77 @@
-<p>
-  <strong>Name:</strong>
-  <%= @speaker.name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @speaker.last_name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @speaker.email %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @speaker.description %>
-</p>
-
-<p>
-  <strong>Information:</strong>
-  <%= @speaker.information.html_safe %>
-</p>
-
-<p>
-  <strong>Twitter:</strong>
-  <%= @speaker.twitter %>
-</p>
-
-<p>
-  <strong>Areas:</strong>
-  <% @speaker.areas.each_with_index do |a, i| %>
-    <%= a.title + (i != @speaker.areas.count-1 ? ', ' : '.') %>
-  <% end %>
-</p>
-
-<p>
-  <strong>Avatar:</strong>
+<%= link_to 'Edit', edit_speaker_path(@speaker) if false %>
+<div class="section-speaker-profile">
+  <%= image_tag 'shadow-layer.png', class: 'shadow-layer' %>
   <%= image_tag @speaker.avatar(:big) %>
-</p>
-
-<p>
-  <strong>Image:</strong>
-  <% @speaker.images(:thumb).each do |image| %>
-    <%= image_tag image %>
-  <% end %>
-</p>
-
-<%= link_to 'Edit', edit_speaker_path(@speaker) %> |
-<%= link_to 'Back', speakers_path %>
+  <div class="container">
+    <div class="section-speaker-profile-caption">
+      <h1><%= @speaker.full_name %></h1>
+      <p><%= @speaker.description %></p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+          <a href="#information" aria-controls="information" role="tab" data-toggle="tab">Información</a>
+        </li>
+        <li role="presentation">
+          <a href="#area" aria-controls="area" role="tab" data-toggle="tab">Area</a>
+        </li>
+        <li role="presentation">
+          <a href="#videos" aria-controls="videos" role="tab" data-toggle="tab">Videos</a>
+        </li>
+        <li role="presentation">
+          <a href="#images" aria-controls="images" role="tab" data-toggle="tab">Imagenes</a>
+        </li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="information">
+          <div><%= @speaker.information.html_safe %></div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="area">
+          <p><%= @speaker.description %></p>
+          <p>Categorias:
+            <% last_index = @speaker.areas.count-1 %>
+            <% @speaker.areas.each_with_index do |a, i| %>
+              <%= link_to(a.title, a) + (i != last_index ? ', ' : '.') %>
+            <% end %>
+          </p>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="videos">
+          <% @speaker.videos.each do |video| %>
+            <div class="video-box">
+              <div class="video">
+                <iframe src="<%= video[:url] %>" frameborder="0" allowfullscreen></iframe>
+              </div>
+              <h3 class="primary"><%= video[:title] %></h3>
+            </div>
+          <% end %>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="images">
+          <div class="row speaker-profile-images-list">
+            <% @speaker.images(:standard).each do |image| %>
+              <div class="col-xs-6">
+                <%= image_tag image, class: 'cover' %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-4 speaker-profile-contact">
+      <a href="mailto:<%= @speaker.email %>" class="btn btn-block btn-primary">Consultar tarifas y disponibilidad.</a>
+      <a href="https://twitter.com/<%= @speaker.twitter %>" target="_blank" class="btn btn-block btn-twitter">
+        Seguí a <%= @speaker.full_name %>
+        <%= image_tag 'icon-twitter.png' %>
+      </a>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <h3 class="primary fill-grey title-block">Speakers Similares</h3>
+</div>
+<%= render 'preview_boxes', speakers: @speaker.areas.first.speakers.sample(3) %>

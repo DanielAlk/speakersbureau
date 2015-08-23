@@ -1,10 +1,12 @@
 .container.speaker-thumbs .row { margin-right: -9px; margin-left: -9px; }
 .container.speaker-thumbs .row>div { padding-left: 9px; padding-right: 9px; }
 
+.video-box { padding: 0 45px; margin-bottom: 45px; }
+
 .container.highlighted-post { margin-top: 50px; margin-bottom: 50px; }
 .post-date { margin-top: 0px; margin-bottom: 20px; }
-.highlighted-post-video { position: relative; padding-bottom: 55%; }
-.highlighted-post-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+.highlighted-post-video, .video-box .video { position: relative; padding-bottom: 55%; }
+.highlighted-post-video iframe, .video-box .video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 @media(max-width: 991px) {
 	.highlighted-post-video { margin: 10px 0 15px; }
 }
@@ -30,3 +32,19 @@
 @media(max-width: 767px) {
 	.speaker-preview-box { margin-bottom: 50px; }
 }
+
+/* SECTION IMAGES */
+.section-image, .section-speaker-profile { margin-bottom: 30px; }
+.section-image { color: #FFF; height: 215px; background-size: cover; background-position: center top; }
+.section-image h2 { margin-top: 160px; }
+.section-image.speakers { background-image: url('<%= asset_path 'section-speakers.jpg' %>'); }
+
+.section-speaker-profile { position: relative; height: 490px; overflow: hidden; }
+.section-speaker-profile-caption {
+	position: absolute; z-index: 10; color: #FFF;
+	padding: 175px 60% 0 0;
+}
+.section-speaker-profile>img { position: absolute; width: 100%; height: auto; }
+.speaker-profile-images-list img { margin-bottom: 30px; }
+.speaker-profile-contact a.btn { text-transform: none; }
+.speaker-profile-contact a.btn-block { padding: 20px 0; margin-bottom: 20px; }

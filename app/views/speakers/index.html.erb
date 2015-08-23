@@ -1,34 +1,8 @@
-<h1>Listing Speakers</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Last name</th>
-      <th>Email</th>
-      <th>Description</th>
-      <th>Twitter</th>
-      <th>Slug</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @speakers.each do |speaker| %>
-      <tr>
-        <td><%= speaker.name %></td>
-        <td><%= speaker.last_name %></td>
-        <td><%= speaker.email %></td>
-        <td><%= speaker.description %></td>
-        <td><%= speaker.twitter %></td>
-        <td><%= speaker.slug %></td>
-        <td><%= link_to 'Show', speaker %></td>
-        
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Speaker', new_speaker_path unless false %>
+<%= link_to 'New Speaker', new_speaker_path if false %>
+<div class="section-image speakers">
+  <div class="container">
+    <h2>Speakers</h2>
+  </div>
+</div>
+<%= render 'search' %>
+<%= render 'preview_boxes', speakers: @speakers.sample(12) %>

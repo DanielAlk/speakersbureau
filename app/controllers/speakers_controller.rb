@@ -5,6 +5,7 @@ class SpeakersController < ApplicationController
 	# GET /speakers.json
 	def index
 		@speakers = Speaker.all
+		@areas = Area.all
 	end
 
 	# GET /speakers/1

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150822082322) do
+ActiveRecord::Schema.define(version: 20150823021017) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -73,6 +73,7 @@ ActiveRecord::Schema.define(version: 20150822082322) do
     t.string   "url",        limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.string   "title",      limit: 255
   end
 
   add_index "speaker_videos", ["speaker_id"], name: "index_speaker_videos_on_speaker_id", using: :btree

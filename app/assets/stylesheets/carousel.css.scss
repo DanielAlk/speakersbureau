@@ -1,110 +1,45 @@
-/* CUSTOMIZE THE CAROUSEL
--------------------------------------------------- */
-
-/* Carousel base class */
-.carousel {
-  margin-bottom: 15px;
-}
-.carousel .container {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-}
-/* Since positioning the image, we need to help out the caption */
+.carousel { margin-bottom: 15px; }
+.carousel .container { position: absolute; height: 100%; width: 100%; }
 .carousel-caption {
-  position: relative;
-  z-index: 10;
-  text-align: left;
-  padding-bottom: 100px;
-  left: auto;
-  right: auto;
-  padding: 0;
-  margin: 0 auto;
-  top: 150px;
-  padding-right: 50%;
-  width: 1140px;
+  position: relative; z-index: 10; text-align: left; padding-bottom: 100px; width: 1140px;
+  left: auto; right: auto; padding: 0; margin: 0 auto; top: 150px; padding-right: 50%;
 }
-.carousel-caption p {
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-
-/* Declare heights because of positioning of img element */
-.carousel .item {
-  background-color: #777;
-}
+.carousel .item { background-color: #777; }
 .carousel-inner > .item > img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: auto;
-  max-width: none;
-  left: 50%;
-  margin-left: -603px;
+  position: absolute; top: 0; left: 0; width: auto;
+  max-width: none; left: 50%; margin-left: -603px;
 }
-.carousel-inner > .item > img.shadow-layer {
-  z-index: 9;
-}
+.carousel-inner > .item > img.shadow-layer, .section-speaker-profile img.shadow-layer { z-index: 9; }
 
-.carousel-control {
-  z-index: 11;
-}
+.carousel-control { z-index: 11; }
 @media(max-width: 1399px) {
   .carousel-control { width: 5%; }
 }
 
-.carousel-indicators li {
-  background-color: #FFF;
-}
+.carousel-indicators li { background-color: #FFF; }
 
-.carousel-indicators .active {
-  background-color: transparent;
-  margin: 1px;
-  width: 10px;
-  height: 10px;
-}
+.carousel-indicators .active { background-color: transparent; margin: 1px; width: 10px; height: 10px; }
 
 .carousel, .carousel .item, .carousel-inner > .item > img { height: 500px; }
+.carousel-caption p, .section-speaker-profile p { font-size: 16px; margin-bottom: 20px; }
 
 @media(max-width: 1199px) {
-  .carousel-caption {
-    width: 940px;
-  }
+  .carousel-caption { width: 940px; }
 }
 @media(max-width: 991px) {
-  .carousel-caption {
-    width: 720px;
-  }
+  .carousel-caption { width: 720px; }
 }
 @media(max-width: 767px) {
   .carousel, .carousel .item, .carousel-inner > .item > img { height: 420px; }
-  .carousel-caption {
-    width: 100%;
-    max-width: 320px;
-    text-align: center;
-    padding: 0 15px;
-    top: 100px;
-  }
-  .carousel-caption h1 {
-    font-size: 34px;
-  }
-  .carousel-caption p {
-    font-size: 14px;
-  }
+  .carousel-caption { width: 100%; max-width: 320px; text-align: center; padding: 0 15px; top: 100px; }
+  .carousel-caption h1, .section-speaker-profile h1 { font-size: 34px; }
+  .carousel-caption p, .section-speaker-profile p { font-size: 14px; }
 }
 
 @media (min-width: 768px) {
-  .carousel-caption h1 {
-    font-size: 48px;
-    white-space: nowrap;
-  }
+  .carousel-caption h1, .section-speaker-profile h1 { font-size: 48px; white-space: nowrap; }
 }
 
 @media(min-width: 1208px) {
-  .carousel-inner > .item > img {
-    width: 100%;
-    height: auto;
-    left: 0;
-    margin-left: 0;
-  }  
+  .carousel-inner > .item > img { width: 100%; height: auto; left: 0; margin-left: 0; }
 }

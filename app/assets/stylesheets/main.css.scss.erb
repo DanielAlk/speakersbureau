@@ -3,6 +3,8 @@ $primary-color-dark: #79110F;
 $default-color: #3e3e3e;
 $grey: #d3d3d3;
 $dark-grey: #bbbbbb;
+$twitter-blue: #00ACDF;
+$twitter-blue-dark: #036E8E;
 
 body { font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 14px; color: $default-color; }
 .logo-main { height: 45px; width: auto; }
@@ -11,6 +13,9 @@ body { font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 14px; col
 small { font-weight: 300; }
 /* TEXT COLORS */
 .primary { color: $primary-color; }
+
+/* BACKGROUND COLORS */
+.fill-grey { background-color: $grey; }
 
 /* LINKS */
 a { color: $primary-color; }
@@ -22,12 +27,17 @@ a.arrow-right:after { content: '>'; text-decoration: none; display: inline-block
 /* BUTTONS */
 .btn { text-transform: uppercase; border-radius: 0; padding: 6px 20px; border: none; }
 .btn-primary { background-color: $primary-color; }
-.btn-invert { color: $primary-color; background-color: #FFF; }
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .btn-primary.dropdown-toggle { 
 	background-color: $primary-color-dark;
 }
+.btn-invert { color: $primary-color; background-color: #FFF; }
 .btn-invert:hover, .btn-invert:focus, .btn-invert:active, .btn-invert.active, .open > .btn-invert.dropdown-toggle {
 	color: $primary-color-dark;
+}
+.btn-twitter { color: #FFF; background-color: $twitter-blue; }
+.btn-twitter img { margin: -5px 0 -5px 10px }
+.btn-twitter:hover, .btn-twitter:focus, .btn-twitter:active, .btn-twitter.active, .open > .btn-twitter.dropdown-toggle {
+	background-color: $twitter-blue-dark; color: #FFF;
 }
 /* cancel button functionality on spans */
 span.btn { cursor: initial; }
@@ -66,13 +76,15 @@ span.btn-primary:hover, span.btn-primary:focus { background-color: $primary-colo
 @media(max-width: 1199px) {
 	.border-bottom-arrow { font-size: 30px; margin-top: 0; }
 }
+/* title-block */
+.title-block { padding: 12px 20px; text-align: right; margin-bottom: 30px; }
 
 
 /* IMAGES */
 img.cover { width: 100%; height: auto; }
 
 /* ICONS */
-.icon-social { display: inline-block; background: url('<%= asset_path('icons-social.png') %>'); height: 30px; width: 30px; }
+.icon-social { display: inline-block; background: url('<%= asset_path 'icons-social.png' %>'); height: 30px; width: 30px; }
 .icon-social.twitter { background-position: -30px 0; }
 .icon-social.youtube { background-position: -60px 0; }
 .icons-social a:not(:last-of-type) { margin-right: 10px; }
@@ -96,6 +108,18 @@ img.cover { width: 100%; height: auto; }
 @media (min-width: 768px) {
 	.navbar-nav { margin: 22px; }
 }
+
+/* NAV TABS */
+.nav-tabs { border: 0; background-color: #d3d3d3; padding: 5px; margin-bottom: 20px; }
+.nav-tabs > li { margin-bottom: 0; }
+.nav-tabs > li > a { margin: 0; border-radius: 0; border: 0; margin-right: 5px; min-width: 110px; text-align: center; }
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+	background-color: $primary-color; color: #FFF;
+}
+.nav > li > a:hover, .nav > li > a:focus {
+	border: 0; background-color: transparent; color: $primary-color-dark;
+}
+.tab-content { margin-bottom: 60px; }
 
 /*FOOTER*/
 footer { background-color: #000; padding-top: 80px; padding-bottom: 80px; color: #FFF; }
