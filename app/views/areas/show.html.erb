@@ -1,7 +1,22 @@
-<p>
-  <strong>Title:</strong>
-  <%= @area.title %>
-</p>
-
-<%= link_to 'Edit', edit_area_path(@area) %> |
-<%= link_to 'Back', areas_path %>
+<%= link_to 'Edit', edit_area_path(@area) if false %>
+<div class="section-image areas">
+  <div class="container">
+    <h2>Area</h2>
+  </div>
+</div>
+<div class="container">
+  <div class="btn-toolbar" role="toolbar">
+    <div class="btn-group" role="group">
+      <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+        Filtrar por Area <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <% @areas.each do |area| %>
+          <li><%= link_to area.title, area %></a></li>
+        <% end %>
+      </ul>
+    </div>
+    <h3 class="btn-toolbar-title primary pull-right"><%= @area.title if @area.present? %></h3>
+  </div>
+</div>
+<%= render 'speakers/preview_boxes', speakers: @speakers %>

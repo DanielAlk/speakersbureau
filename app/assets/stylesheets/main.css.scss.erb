@@ -43,12 +43,16 @@ a.arrow-right:after { content: '>'; text-decoration: none; display: inline-block
 span.btn { cursor: initial; }
 span.btn-primary:hover, span.btn-primary:focus { background-color: $primary-color; }
 /* BUTTON GROUPS */
-.btn-group-justified { padding: 5px; background-color: $grey; }
-.btn-group-justified>.btn-group:not(:last-child) { padding-right: 5px; }
-.btn-group-justified .btn { text-transform: none; padding-top: 9px; padding-bottom: 9px; }
+.btn-group-justified, .btn-toolbar { padding: 5px; background-color: $grey; }
+.btn-group-justified>.btn-group:not(:last-child), .btn-toolbar>.btn-group:not(:last-child) { padding-right: 5px; }
+.btn-group-justified .btn, .btn-toolbar .btn { text-transform: none; padding: 9px 0; }
 .btn-group-justified .form-control { border: none; border-radius: 0; height: 38px; }
 .btn-group-justified .search-group .glyphicon { position: absolute; margin: 12px 0 0 18px; color: $primary-color; }
 .btn-group-justified .search-group .form-control { padding-left: 45px; }
+.btn-toolbar { margin-left: 0; }
+.btn-toolbar > .btn, .btn-toolbar > .btn-group, .btn-toolbar > .input-group { margin-left: 0; }
+.btn-toolbar .btn { padding-left: 50px; padding-right: 50px; }
+.btn-toolbar .btn-toolbar-title { margin: 7px 20px 0; }
 /* DROPDOWN BTNS */
 .btn .caret { position: absolute; right: 0; top: 0; margin: 17px; border-width: 5px; }
 .dropdown-toggle { border: 1px solid $dark-grey; }

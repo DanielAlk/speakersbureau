@@ -4,12 +4,19 @@ class AreasController < ApplicationController
   # GET /areas
   # GET /areas.json
   def index
-    @areas = Area.all
+    show
   end
 
   # GET /areas/1
   # GET /areas/1.json
   def show
+    @areas = Area.order :title
+    if @area.present?
+      @speakers = @area.speakers.order(:last_name)
+    else
+      @speakers = Speaker.order(:last_name)
+    end
+    render :show
   end
 
   # GET /areas/new

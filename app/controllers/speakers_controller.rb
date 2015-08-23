@@ -4,8 +4,8 @@ class SpeakersController < ApplicationController
 	# GET /speakers
 	# GET /speakers.json
 	def index
-		@speakers = Speaker.all
-		@areas = Area.all
+		@speakers = Speaker.order :last_name
+		@areas = Area.order :title
 	end
 
 	# GET /speakers/1

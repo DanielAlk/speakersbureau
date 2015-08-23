@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
-  	@speakers = Speaker.all
+  	@speakers = Speaker.order :last_name
   	@last_post = Post.last
-  	@areas = Area.all
+  	@areas = Area.order :title
   end
 end
