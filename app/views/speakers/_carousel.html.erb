@@ -16,7 +16,7 @@
           <div class="carousel-caption">
             <h1><%= speaker.full_name %></h1>
             <p><%= speaker.description %></p>
-            <p><a class="btn btn-primary" href="<%= speaker_path speaker %>" role="button">Leer mas</a></p>
+            <p><%= link_to 'Leer mas', speaker, class: 'btn btn-primary', role: 'button' %></p>
           </div>
         </div>
       </div>

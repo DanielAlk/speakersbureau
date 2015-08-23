@@ -82,11 +82,19 @@ img.cover { width: 100%; height: auto; }
 .navbar { min-height: 70px; margin-bottom: 0; font-size: 14px; padding-top: 15px; padding-bottom: 15px; }
 .navbar-brand { height: 70px; }
 .navbar-default { background-color: transparent; border-color: transparent; }
-.navbar-default .navbar-nav > li > a { color: #FFF; text-transform: uppercase; font-weight: 300; }
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus { color: $primary-color; }
 .navbar-toggle { margin-top: 17px; margin-bottom: 17px; } 
+.navbar-default .navbar-nav > li > a {
+	color: #FFF; text-transform: uppercase; font-weight: 300; padding-top: 5px; padding-bottom: 5px;
+}
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus { color: $primary-color; }
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+	background-color: $primary-color;
+	color: #FFF;	
+}
 @media (min-width: 768px) {
-	.navbar-nav { margin: 7px; }
+	.navbar-nav { margin: 22px; }
 }
 
 /*FOOTER*/
