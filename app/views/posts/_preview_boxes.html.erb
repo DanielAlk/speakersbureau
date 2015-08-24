@@ -9,7 +9,7 @@
 			</div>
 			<div class="col-xs-8">
 				<h2 class="primary"><%= post.title %></h2>
-				<h3 class="post-date"><%= post.date %> <small>TB&amp;ASOC.</small></h3>
+				<h3 class="post-date"><%= post.date_short %> <small>TB&amp;ASOC.</small></h3>
 				<p><%= strip_tags(post.shorter_body).html_safe + '...' %></p>
 				<% if false %>
 					<%= link_to 'Edit', edit_post_path(post) %>

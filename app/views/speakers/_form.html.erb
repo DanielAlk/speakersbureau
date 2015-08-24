@@ -13,23 +13,23 @@
 
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :email %><br>
-    <%= f.text_field :email %>
+    <%= f.text_field :email, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <%= f.text_field :description, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :information %><br>
-    <%= f.text_area :information, class: 'tinymce' %>
+    <%= f.text_area :information, class: 'tinymce form-control' %>
   </div>
   <div class="field">
     <%= f.label :visible_on_home %><br>
@@ -37,19 +37,26 @@
   </div>
   <div class="field">
     <%= f.label :twitter %><br>
-    <%= f.text_field :twitter %>
+    <%= f.text_field :twitter, class: 'form-control' %>
   </div>
   <div class="field">
     <%= f.label :avatar %><br>
-    <%= f.file_field :avatar %>
+    <%= f.file_field :avatar, class: 'form-control' %>
   </div>
   <div class="field">
     <%= label_tag 'speaker_images_' %><br>
-    <%= file_field_tag 'speaker_images[]', multiple: true %>
+    <%= file_field_tag 'speaker_images[]', multiple: true, class: 'form-control' %>
   </div>
-  <div class="field">
+  <div class="field" style="margin-bottom:15px;">
     <%= label_tag 'speaker_areas_' %><br>
-    <%= text_field_tag 'speaker_areas[]' %>
+    <div class="form-control" style="padding:3px 5px;">
+      <% if @speaker.areas.present? %>
+        <% @speaker.areas.each do |area| %>
+          <%= text_field_tag 'speaker_areas[]', area.title %>
+        <% end %>
+      <% end %>
+      <%= text_field_tag 'speaker_areas[]' %>
+    </div>
   </div>
   <div class="actions">
     <%= f.submit %>

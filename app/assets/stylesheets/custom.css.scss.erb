@@ -39,6 +39,30 @@
 /* POSTS PREVIEW */
 .preview-posts h2 { margin-top: 0; }
 
+/* LAST POSTS */
+.last-posts { padding: 10px; }
+.last-posts h3 { margin-top: 0; }
+@media(min-width: 768px) {
+	.post-body { font-size: 16px; }
+	.last-posts { height: 359px; }
+	@media(max-width: 1199px) {
+		.last-posts { height: 295px; }
+	}
+	@media(max-width: 991px) {
+		.last-posts { height: 224px; }
+	}
+}
+@media(max-width: 991px) {
+	.last-posts hr { margin-top: 10px; margin-bottom: 10px; }
+}
+
+/* objects inside cols fill col padding */
+@media(min-width: 768px) {
+	.fill-padding { margin-right: -15px; margin-left: -15px; }
+	.fill-padding-right { margin-right: -15px; }
+	.fill-padding-left { margin-left: -15px; }
+}
+
 /* SECTION IMAGES */
 .section-image, .section-speaker-profile { margin-bottom: 30px; }
 .section-image { color: #FFF; height: 215px; background-size: cover; background-position: center top; }

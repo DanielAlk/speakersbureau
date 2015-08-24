@@ -8,9 +8,13 @@ class Post < ActiveRecord::Base
   	sv
   end
 
-  def date
-  	d = self.updated_at
+  def date_short
+  	d = self.created_at
   	d.day.to_s + '/' + d.month.to_s
+  end
+
+  def date_complete
+    self.date_short+'/'+self.created_at.year.to_s
   end
 
   def short_body

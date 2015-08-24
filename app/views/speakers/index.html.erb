@@ -1,8 +1,4 @@
 <%= link_to 'New Speaker', new_speaker_path if false %>
-<div class="section-image speakers">
-  <div class="container">
-    <h2>Speakers</h2>
-  </div>
-</div>
+<%= render 'section_image' %>
 <%= render 'search' %>
 <%= render 'preview_boxes', speakers: @speakers.sample(12) %>

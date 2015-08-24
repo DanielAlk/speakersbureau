@@ -13,9 +13,11 @@ body { font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 14px; col
 small { font-weight: 300; }
 /* TEXT COLORS */
 .primary { color: $primary-color; }
+.default { color: $default-color; }
 
 /* BACKGROUND COLORS */
 .fill-grey { background-color: $grey; }
+.fill-grey hr { border-color: $default-color; }
 
 /* LINKS */
 a { color: $primary-color; }
@@ -56,7 +58,7 @@ span.btn-primary:hover, span.btn-primary:focus { background-color: $primary-colo
 .btn-group-justified .search-group .form-control { padding-left: 45px; }
 .btn-toolbar { margin-left: 0; }
 .btn-toolbar > .btn, .btn-toolbar > .btn-group, .btn-toolbar > .input-group { margin-left: 0; }
-.btn-toolbar .btn { padding-left: 50px; padding-right: 50px; }
+.btn-toolbar .btn { min-width: 210px; padding-left: 20px; text-align: left; font-weight: 300; }
 .btn-toolbar .btn-toolbar-title { margin: 7px 20px 0; }
 /* DROPDOWN BTNS */
 .btn .caret { position: absolute; right: 0; top: 0; margin: 17px; border-width: 5px; }

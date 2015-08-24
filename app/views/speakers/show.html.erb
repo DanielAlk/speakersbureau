@@ -74,4 +74,4 @@
 <div class="container">
   <h3 class="primary fill-grey title-block">Speakers Similares</h3>
 </div>
-<%= render 'preview_boxes', speakers: @speaker.areas.first.speakers.sample(3) %>
+<%= render 'preview_boxes', speakers: @speaker.areas.present? ? @speaker.areas.first.speakers.sample(3) : [] %>
