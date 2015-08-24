@@ -1,3 +1,7 @@
+<% content_for :extra_js do %>
+  Utils.inputTextArray();
+<% end %>
+
 <%= form_for @speaker, :html => { :multipart => true } do |f| %>
   <% if @speaker.errors.any? %>
     <div id="error_explanation">

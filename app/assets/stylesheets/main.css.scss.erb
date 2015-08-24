@@ -2,6 +2,7 @@ $primary-color: #D61B16;
 $primary-color-dark: #79110F;
 $default-color: #3e3e3e;
 $grey: #d3d3d3;
+$light-grey: #f8f8f8;
 $dark-grey: #bbbbbb;
 $twitter-blue: #00ACDF;
 $twitter-blue-dark: #036E8E;
@@ -11,17 +12,21 @@ body { font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 14px; col
 
 /* TEXT */
 small { font-weight: 300; }
+.uppercase { text-transform: uppercase; }
 /* TEXT COLORS */
 .primary { color: $primary-color; }
 .default { color: $default-color; }
 
 /* BACKGROUND COLORS */
+.fill-primary { background-color: $primary-color; color: #FFF; }
 .fill-grey { background-color: $grey; }
 .fill-grey hr { border-color: $default-color; }
+.fill-light-grey { background-color: $light-grey; }
 
 /* LINKS */
 a { color: $primary-color; }
 a:hover, a:focus { color: $primary-color-dark; }
+a.default:hover, a.default:focus { color: $default-color; }
 /* arrow-right */
 a.arrow-right { font-style: italic; text-decoration: underline; }
 a.arrow-right:after { content: '>'; text-decoration: none; display: inline-block; margin-left: 5px; }
@@ -30,6 +35,19 @@ a.arrow-back:before {
 	content: '<'; border: 1px solid #FFF; display: inline-block; border-radius: 50%; font-size: 16px;
 	margin-right: 5px; width: 18px; height: 18px; text-align: center; vertical-align: bottom;
 }
+a.with-icon>.glyphicon { margin-right: 10px; }
+
+/* SPACES */
+.space-bottom { margin-bottom: 30px; }
+.space-bottom-plus { margin-bottom: 50px; }
+ul.space-between>li:not(:last-of-type) { margin-bottom: 10px; }
+
+/* SHAPES */
+.round { border-radius: 50%; padding: 5px; }
+
+/* FORM CONTROL */
+.form-control { background-color: $light-grey; border-color: $grey; border-radius: 0; }
+form [type=submit] { padding-left: 40px; padding-right: 40px; }
 
 /* BUTTONS */
 .btn { text-transform: uppercase; border-radius: 0; padding: 6px 20px; border: none; }
@@ -53,9 +71,9 @@ span.btn-primary:hover, span.btn-primary:focus { background-color: $primary-colo
 .btn-group-justified, .btn-toolbar { padding: 5px; background-color: $grey; }
 .btn-group-justified>.btn-group:not(:last-child), .btn-toolbar>.btn-group:not(:last-child) { padding-right: 5px; }
 .btn-group-justified .btn, .btn-toolbar .btn { text-transform: none; padding: 9px 0; }
-.btn-group-justified .form-control { border: none; border-radius: 0; height: 38px; }
-.btn-group-justified .search-group .glyphicon { position: absolute; margin: 12px 0 0 18px; color: $primary-color; }
-.btn-group-justified .search-group .form-control { padding-left: 45px; }
+.btn-group-justified .form-control { border: none; border-radius: 0; height: 38px; background-color: #FFF; }
+.search-group .glyphicon { position: absolute; margin: 12px 0 0 18px; color: $primary-color; font-weight: 600; }
+.search-group .form-control { padding-left: 45px; }
 .btn-toolbar { margin-left: 0; }
 .btn-toolbar > .btn, .btn-toolbar > .btn-group, .btn-toolbar > .input-group { margin-left: 0; }
 .btn-toolbar .btn { min-width: 210px; padding-left: 20px; text-align: left; font-weight: 300; }
@@ -70,6 +88,14 @@ span.btn-primary:hover, span.btn-primary:focus { background-color: $primary-colo
 .dropdown-toggle:after { border-bottom-color: $grey; bottom: -1px; }
 .dropdown-menu { width: 100%; border-radius: 0; margin-left: -2px; }
 .dropdown-menu > li > a { padding-left: 10px; padding-right: 10px; white-space: normal; }
+.fill-light-grey .dropdown-toggle:after { border-bottom-color: $light-grey }
+
+/* BOX */
+.box { padding: 20px; }
+.box>:first-child { margin-top: 0; }
+.box>:last-child { margin-bottom: 0; }
+.box .btn-group-justified { padding: 0; background-color: transparent; margin-top: 15px; }
+.box .btn-group-justified .search-group { width: 3%; }
 
 /* TITLES */
 /* border-bottom-arrow */
@@ -116,6 +142,13 @@ img.cover { width: 100%; height: auto; }
 	background-color: $primary-color;
 	color: #FFF;	
 }
+.navbar-nav .search-group { margin: -2px 0 0 20px; }
+.navbar-nav .search-group .glyphicon { margin: 7px 15px; color: #FFF; }
+.navbar-nav .search-group .form-control { background-color: transparent; color: #FFF; }
+.navbar-nav ::-webkit-input-placeholder { color: #FFF; }
+.navbar-nav :-moz-placeholder { color: #FFF; }
+.navbar-nav ::-moz-placeholder { color: #FFF; }
+.navbar-nav :-ms-input-placeholder { color: #FFF; }
 @media (min-width: 768px) {
 	.navbar-nav { margin: 22px; }
 }

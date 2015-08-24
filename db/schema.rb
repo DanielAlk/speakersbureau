@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823021017) do
+ActiveRecord::Schema.define(version: 20150824174044) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -21,6 +21,21 @@ ActiveRecord::Schema.define(version: 20150823021017) do
   end
 
   add_index "areas", ["slug"], name: "index_areas_on_slug", unique: true, using: :btree
+
+  create_table "contacts", force: :cascade do |t|
+    t.string   "name",                limit: 255
+    t.string   "profession",          limit: 255
+    t.string   "organization",        limit: 255
+    t.string   "city",                limit: 255
+    t.string   "zip_code",            limit: 255
+    t.string   "email",               limit: 255
+    t.string   "phone_number",        limit: 255
+    t.string   "request_details",     limit: 255
+    t.text     "event_details",       limit: 65535
+    t.string   "past_events_speaker", limit: 255
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",           limit: 255, null: false
