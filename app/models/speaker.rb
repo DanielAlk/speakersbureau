@@ -2,7 +2,7 @@ class Speaker < ActiveRecord::Base
 	extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 	has_attached_file :avatar, styles: { big: "1600x663#" }, default_url: "speaker-avatar-default.jpg"
-	#validates_attachment_content_type :avatar, content_type: /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/
+	validates_attachment_content_type :avatar, content_type: /^image\/(jpg|jpeg|pjpeg|png|x-png|gif)$/
 
 	has_many :speaker_areas, :dependent => :destroy
 	has_many :speaker_images, :dependent => :destroy
