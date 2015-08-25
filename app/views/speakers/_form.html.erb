@@ -45,11 +45,11 @@
   </div>
   <div class="field">
     <%= f.label :avatar %><br>
-    <%= f.file_field :avatar, class: 'form-control' %>
+    <%= f.file_field :avatar, accept: 'image/*', class: 'form-control' %>
   </div>
   <div class="field">
     <%= label_tag 'speaker_images_' %><br>
-    <%= file_field_tag 'speaker_images[]', multiple: true, class: 'form-control' %>
+    <%= file_field_tag 'speaker_images[]', multiple: true, accept: 'image/*', class: 'form-control' %>
   </div>
   <div class="field" style="margin-bottom:15px;">
     <%= label_tag 'speaker_areas_' %><br>
