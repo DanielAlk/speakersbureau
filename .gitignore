@@ -28,4 +28,6 @@
 /public/stylesheets/compiled
 /public/system/*
 /public/sitemap*
+/public/assets/*
+/vendor/bundle/*
 /private_paperclip/
