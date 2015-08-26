@@ -11,7 +11,7 @@
   <%= render 'layouts/footer' %>
 <script>
   $(function() {
-    $('[data-toggle="tooltip"]').tooltip();
+    Utils.init();
     <% if content_for? :extra_js %>
       <%= yield :extra_js %>
     <% end %>

@@ -15,6 +15,4 @@
 //= require tinymce-jquery
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require transition
-//= require dropdown
 //= require_tree .

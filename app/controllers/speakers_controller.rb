@@ -1,11 +1,11 @@
 class SpeakersController < ApplicationController
 	before_action :set_speaker, only: [:show, :edit, :update, :destroy]
+	before_action :get_areas, only: [:new, :edit, :index]
 
 	# GET /speakers
 	# GET /speakers.json
 	def index
 		@speakers = Speaker.order :last_name
-		@areas = Area.order :title
 	end
 
 	# GET /speakers/1
@@ -73,6 +73,10 @@ class SpeakersController < ApplicationController
 		# Never trust parameters from the scary internet, only allow the white list through.
 		def speaker_params
 			params.require(:speaker).permit(:name, :last_name, :email, :description, :information, :twitter, :avatar, :visible_on_home)
+		end
+
+		def get_areas
+			@areas = Area.order :title
 		end
 
 		def save_related_objects

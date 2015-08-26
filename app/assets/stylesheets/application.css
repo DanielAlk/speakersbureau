@@ -11,8 +11,11 @@
  * file per style scope.
  *
  * require_tree .
+ *
  *= require import_bs
  *= require transition
+ *= require label
+ *= require icon
  *= require dropdown
  *= require main
  *= require carousel

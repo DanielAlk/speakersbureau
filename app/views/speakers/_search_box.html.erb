@@ -2,20 +2,14 @@
 	<h4>Buscar Speaker</h4>
 	<div class="btn-group-justified">
 	  <div class="btn-group" role="group">
-	  	<select class="ui fluid search normal dropdown btn btn-invert dropdown-toggle">
-	  		<option value="">Por nombre</option>
-	  		<% @speakers.each do |speaker| %>
-	    		<option value="<%= speaker_path(speaker) %>"><%= speaker.full_name %></option>
-	    	<% end %>
-	    </select>
+	  	<%= dropdown 'btn-invert', 'Por nombre', 'Buscar speaker', @speakers.each do |speaker| %>
+	  		<div class="item" data-value="<%= speaker_path(speaker) %>"><%= speaker.full_name %></div>
+	  	<% end %>
 	  </div>
 	  <div class="btn-group" role="group">
-	  	<select class="ui fluid search normal dropdown btn btn-invert dropdown-toggle">
-	  		<option value="">Por tema</option>
-	  		<% @areas.each do |area| %>
-	    		<option value="<%= area_path(area) %>"><%= area.title %></option>
-	    	<% end %>
-	    </select>
+	  	<%= dropdown 'btn-invert', 'Por tema', 'Buscar tema', @areas do |area| %>
+	  		<div class="item" data-value="<%= area_path(area) %>"><%= area.title %></div>
+	  	<% end %>
 	  </div>
 	</div>
 	<div class="btn-group-justified">
@@ -28,10 +22,3 @@
 	  </div>
 	</div>
 </div>
-<% content_for :extra_js do %>
-	$('.ui.dropdown.btn').dropdown({
-		action: function(text, value) {
-			window.location.href = value;
-		}
-	});
-<% end %>

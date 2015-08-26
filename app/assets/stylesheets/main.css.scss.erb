@@ -43,6 +43,7 @@ a.with-icon>.glyphicon { margin-right: 10px; }
 /* FORM CONTROL */
 .form-control { background-color: $light-grey; border-color: $grey; border-radius: 0; }
 form [type=submit] { padding-left: 40px; padding-right: 40px; }
+.form-control.ui.dropdown.multiple { height: auto; min-height: 34px; background-color: $light-grey; border-radius: 0; }
 
 /* BUTTONS */
 .btn { text-transform: uppercase; border-radius: 0; padding: 6px 20px; border: none; }
@@ -65,7 +66,7 @@ span.btn-primary:hover, span.btn-primary:focus { background-color: $primary-colo
 /* BUTTON GROUPS */
 .btn-group-justified, .btn-toolbar { padding: 5px; background-color: $grey; }
 .btn-group-justified>.btn-group:not(:last-child), .btn-toolbar>.btn-group:not(:last-child) { padding-right: 5px; }
-.btn-group-justified .btn, .btn-toolbar .btn { text-transform: none; padding: 9px 0; }
+.btn-group-justified .btn, .btn-toolbar .btn { text-transform: none; padding: 9px 0; text-align: center; }
 .btn-group-justified .form-control { border: none; border-radius: 0; height: 38px; background-color: #FFF; }
 .search-group .glyphicon { position: absolute; margin: 12px 0 0 18px; color: $primary-color; font-weight: 600; }
 .search-group .form-control { padding-left: 45px; }
@@ -84,6 +85,12 @@ span.btn-primary:hover, span.btn-primary:focus { background-color: $primary-colo
 .dropdown-menu { width: 100%; border-radius: 0; margin-left: -2px; }
 .dropdown-menu > li > a { padding-left: 10px; padding-right: 10px; white-space: normal; }
 .fill-light-grey .dropdown-toggle:after { border-bottom-color: $light-grey }
+
+/* UI DROPDOWNS */
+.ui.dropdown .menu > .input > .glyphicon { position: absolute; right: 0; margin: 22px 20px 0 0; color: $primary-color; }
+.ui.dropdown .menu > .item { font-size: 12px; }
+.ui.floating.dropdown > .menu { margin-top: 2px !important; }
+.ui.scrolling.dropdown .menu, .ui.dropdown .scrolling.menu { max-height: 270px; }
 
 /* BOX */
 .box { padding: 20px; }

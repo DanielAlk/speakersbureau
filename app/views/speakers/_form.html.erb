@@ -1,7 +1,3 @@
-<% content_for :extra_js do %>
-  Utils.inputTextArray();
-<% end %>
-
 <%= form_for @speaker, :html => { :multipart => true } do |f| %>
   <% if @speaker.errors.any? %>
     <div id="error_explanation">
@@ -52,17 +48,15 @@
     <%= file_field_tag 'speaker_images[]', multiple: true, accept: 'image/*', class: 'form-control' %>
   </div>
   <div class="field" style="margin-bottom:15px;">
-    <%= label_tag 'speaker_areas_' %><br>
-    <div class="form-control" style="padding:3px 5px;">
-      <% if @speaker.areas.present? %>
-        <% @speaker.areas.each do |area| %>
-          <%= text_field_tag 'speaker_areas[]', area.title %>
-        <% end %>
-      <% end %>
-      <%= text_field_tag 'speaker_areas[]' %>
-    </div>
+    <%= label_tag 'speaker_areas' %><br>
+    <%= select_tag 'speaker_areas', options_from_collection_for_select(@areas, 'title', 'title'), multiple: true, class: 'form-control dropdown search' %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
+
+<% content_for :extra_js do %>
+  $('select.dropdown').dropdown({ allowAdditions: true });
+  $('.dropdown.multiple').dropdown('set selected', <%= selected_areas(@speaker.areas) %>);
 <% end %>
