@@ -2,7 +2,7 @@
 	<h4>Buscar Speaker</h4>
 	<div class="btn-group-justified">
 	  <div class="btn-group" role="group">
-	  	<select class="ui fluid search normal dropdown btn btn-invert">
+	  	<select class="ui fluid search normal dropdown btn btn-invert dropdown-toggle">
 	  		<option value="">Por nombre</option>
 	  		<% @speakers.each do |speaker| %>
 	    		<option value="<%= speaker_path(speaker) %>"><%= speaker.full_name %></option>
@@ -10,7 +10,7 @@
 	    </select>
 	  </div>
 	  <div class="btn-group" role="group">
-	  	<select class="ui fluid search normal dropdown btn btn-invert">
+	  	<select class="ui fluid search normal dropdown btn btn-invert dropdown-toggle">
 	  		<option value="">Por tema</option>
 	  		<% @areas.each do |area| %>
 	    		<option value="<%= area_path(area) %>"><%= area.title %></option>

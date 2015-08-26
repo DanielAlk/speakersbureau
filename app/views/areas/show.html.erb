@@ -3,7 +3,7 @@
 <div class="container">
   <div class="btn-toolbar" role="toolbar">
     <div class="btn-group" role="group">
-      <select class="ui fluid search normal dropdown btn btn-primary">
+      <select class="ui fluid search normal dropdown btn btn-primary dropdown-toggle">
         <option value="">Filtrar por Area</option>
         <% @areas.each do |area| %>
           <option value="<%= area_path(area) %>"><%= area.title %></a></option>
