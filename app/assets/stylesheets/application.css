@@ -12,6 +12,8 @@
  *
  * require_tree .
  *= require import_bs
+ *= require transition
+ *= require dropdown
  *= require main
  *= require carousel
  *= require custom

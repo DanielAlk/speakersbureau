@@ -3,16 +3,21 @@
 <div class="container">
   <div class="btn-toolbar" role="toolbar">
     <div class="btn-group" role="group">
-      <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-        Filtrar por Area <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu">
+      <select class="ui fluid search normal dropdown btn btn-primary">
+        <option value="">Filtrar por Area</option>
         <% @areas.each do |area| %>
-          <li><%= link_to area.title, area %></a></li>
+          <option value="<%= area_path(area) %>"><%= area.title %></a></option>
         <% end %>
-      </ul>
+      </select>
     </div>
     <h3 class="btn-toolbar-title primary pull-right"><%= @area.title if @area.present? %></h3>
   </div>
 </div>
 <%= render 'speakers/preview_boxes', speakers: @speakers %>
+<% content_for :extra_js do %>
+  $('.ui.dropdown.btn').dropdown({
+    action: function(text, value) {
+      window.location.href = value;
+    }
+  });
+<% end %>

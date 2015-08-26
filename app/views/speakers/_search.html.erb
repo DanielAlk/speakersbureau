@@ -4,24 +4,20 @@
     	<span class="btn btn-primary">Encuentra un speaker</span>
     </div>
     <div class="btn-group" role="group">
-      <a href="#" class="btn btn-invert dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-        Por nombre <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu">
-      	<% @speakers.each do |speaker| %>
-      		<li><%= link_to speaker.full_name, speaker %></li>
-      	<% end %>
-      </ul>
+      <select class="ui fluid search normal dropdown btn btn-invert">
+        <option value="">Por nombre</option>
+        <% @speakers.each do |speaker| %>
+          <option value="<%= speaker_path(speaker) %>"><%= speaker.full_name %></option>
+        <% end %>
+      </select>
     </div>
     <div class="btn-group" role="group">
-      <a href="#" class="btn btn-invert dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-        Por tema <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu">
-      	<% @areas.each do |area| %>
-      		<li><%= link_to area.title, area %></a></li>
-      	<% end %>
-      </ul>
+      <select class="ui fluid search normal dropdown btn btn-invert">
+        <option value="">Por tema</option>
+        <% @areas.each do |area| %>
+          <option value="<%= area_path(area) %>"><%= area.title %></option>
+        <% end %>
+      </select>
     </div>
   	<div class="btn-group search-group" role="group">
   		<span class="glyphicon glyphicon-search"></span>
@@ -32,3 +28,10 @@
     </div>
   </div>
 </div>
+<% content_for :extra_js do %>
+  $('.ui.dropdown.btn').dropdown({
+    action: function(text, value) {
+      window.location.href = value;
+    }
+  });
+<% end %>
