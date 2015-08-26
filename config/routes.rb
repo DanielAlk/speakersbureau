@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'home#index'
 
   resources :posts, path: 'blog'
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
   resources :areas
   get 'contacto' => 'contacts#new', as: :new_contact
   resources :contacts, path: 'contacto'
+  
+  get 'tb-asociados' => 'static_pages#brand', as: :brand
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

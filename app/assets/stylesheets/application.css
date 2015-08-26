@@ -15,5 +15,6 @@
  *= require main
  *= require carousel
  *= require custom
+ *= require static_pages
  *= require_self
  */
