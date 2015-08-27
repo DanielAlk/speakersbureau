@@ -89,13 +89,20 @@ class SpeakersController < ApplicationController
 				end
 			end
 			if params['speaker_areas'] and params['speaker_areas'].first.present?
-				@speaker.speaker_areas.each do |area|
-					area.destroy
+				sp_area_titles = []
+				@speaker.speaker_areas.each do |spa|
+					sp_area_titles << spa.area.title
+					unless params['speaker_areas'].include? spa.area.title
+						spa.destroy
+					end
 				end
-				params['speaker_areas'].each do |speaker_area|
-					if speaker_area.present?
-						area = Area.find_by(:title => speaker_area) || Area.create(:title => speaker_area)
-						@speaker.speaker_areas.create(area: area)
+				params['speaker_areas'].each do |param|
+					unless sp_area_titles.include? param
+						a = Area.new(title: param)
+						unless a.save 
+							a = Area.find_by(title: param)
+						end
+						@speaker.speaker_areas.create(area: a)
 					end
 				end
 			end
