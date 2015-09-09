@@ -18,6 +18,9 @@
     <% if notice.present? %>
       alert('<%= notice %>');
     <% end %>
+    <% if alert.present? %>
+      alert('<%= alert %>');
+    <% end %>
   });
 </script>
 <%= tinymce %>
