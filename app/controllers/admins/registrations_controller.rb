@@ -36,7 +36,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
 
   # DELETE /resource
   def destroy
-    if current_admin.regular?
+    unless current_admin.administrator?
       super
     else
       redirect_to admin_path, notice: "Administrator account can not be deleted"
