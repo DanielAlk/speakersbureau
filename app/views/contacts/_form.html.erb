@@ -1,7 +1,3 @@
-<% content_for :extra_js do %>
-  Utils.newContactForm();
-<% end %>
-
 <%= form_for @contact do |f| %>
   <% if @contact.errors.any? %>
     <div id="error_explanation">
@@ -45,7 +41,7 @@
   </div>
   <div class="form-group space-bottom">
     <%= f.label :request_details, class: 'sr-only' %>
-    <%= f.text_field :request_details, class: 'form-control', placeholder: 'Indicar Speaker de interés o solicitar recomendación' %>
+    <%= f.select :request_details, options_from_collection_for_select(@speakers, 'full_name', 'full_name'), { :prompt => 'Indicar Speaker de interés o solicitar recomendación' }, { :class => 'form-control form-control-dropdown dropdown search' } %>
   </div>
   <div class="form-group space-bottom">
     <%= f.label :event_details, class: 'sr-only' %>
@@ -53,9 +49,14 @@
   </div>
   <div class="form-group space-bottom">
     <%= f.label :past_events_speaker, class: 'sr-only' %>
-    <%= f.text_field :past_events_speaker, class: 'form-control', placeholder: '¿Qué Speaker ha participado en eventos pasados?' %>
+    <%= f.select :past_events_speaker, options_from_collection_for_select(@speakers, 'full_name', 'full_name'), { :prompt => '¿Qué Speaker ha participado en eventos pasados?' }, { :class => 'form-control form-control-dropdown dropdown search' } %>
   </div>
   <div class="actions">
     <%= f.submit 'ACEPTAR', class: 'btn btn-primary' %>
   </div>
+<% end %>
+
+<% content_for :extra_js do %>
+  Utils.newContactForm();
+  $('select.dropdown').dropdown({ allowAdditions: true });
 <% end %>

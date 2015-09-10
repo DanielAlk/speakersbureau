@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+  before_action :authenticate_admin!, except: :new
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
   layout 'admin', except: :new
 
@@ -22,6 +23,7 @@ class ContactsController < ApplicationController
 
   # GET /contacts/1/edit
   def edit
+    @speakers = Speaker.order :last_name
   end
 
   # POST /contacts

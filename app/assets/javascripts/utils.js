@@ -17,7 +17,10 @@ Utils.init = function() {
 	    $(this).find('input').focus();
 	  }
 	});
-}
+	$(document).on('click', '.speaker-preview-box img, .speaker-preview-box h3, .preview-posts h2, .highlighted-post h2', function(e) {
+		$(this).parent().find('a').get(0).click();
+	});
+};
 
 Utils.newContactForm = function() {
 	$('#new_contact').submit(function(e) {

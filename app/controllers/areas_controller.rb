@@ -1,4 +1,5 @@
 class AreasController < ApplicationController
+  before_action :authenticate_admin!, except: [:index, :show]
   before_action :set_area, only: [:show, :edit, :update, :destroy]
   layout 'admin', except: [:show, :index]
 
