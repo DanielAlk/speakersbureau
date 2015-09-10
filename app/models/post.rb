@@ -4,8 +4,10 @@ class Post < ActiveRecord::Base
 
   def video_url
   	sv = self.video
-  	sv['watch?v=']= 'embed/'
-  	sv
+    if sv['watch?v=']
+    	sv['watch?v=']= 'embed/'
+    	sv
+    end
   end
 
   def date_short

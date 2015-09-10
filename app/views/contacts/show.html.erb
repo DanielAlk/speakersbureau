@@ -1,54 +1,56 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @contact.name %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @contact.name %>
+  </p>
 
-<p>
-  <strong>Profession:</strong>
-  <%= @contact.profession %>
-</p>
+  <p>
+    <strong>Profession:</strong>
+    <%= @contact.profession %>
+  </p>
 
-<p>
-  <strong>Organization:</strong>
-  <%= @contact.organization %>
-</p>
+  <p>
+    <strong>Organization:</strong>
+    <%= @contact.organization %>
+  </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @contact.city %>
-</p>
+  <p>
+    <strong>City:</strong>
+    <%= @contact.city %>
+  </p>
 
-<p>
-  <strong>Zip code:</strong>
-  <%= @contact.zip_code %>
-</p>
+  <p>
+    <strong>Zip code:</strong>
+    <%= @contact.zip_code %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @contact.email %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @contact.email %>
+  </p>
 
-<p>
-  <strong>Phone number:</strong>
-  <%= @contact.phone_number %>
-</p>
+  <p>
+    <strong>Phone number:</strong>
+    <%= @contact.phone_number %>
+  </p>
 
-<p>
-  <strong>Request details:</strong>
-  <%= @contact.request_details %>
-</p>
+  <p>
+    <strong>Request details:</strong>
+    <%= @contact.request_details %>
+  </p>
 
-<p>
-  <strong>Event details:</strong>
-  <%= @contact.event_details %>
-</p>
+  <p>
+    <strong>Event details:</strong>
+    <%= @contact.event_details %>
+  </p>
 
-<p>
-  <strong>Past events speaker:</strong>
-  <%= @contact.past_events_speaker %>
-</p>
+  <p>
+    <strong>Past events speaker:</strong>
+    <%= @contact.past_events_speaker %>
+  </p>
 
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+  <%= link_to 'Edit', edit_contact_path(@contact) %> |
+  <%= link_to 'Back', contacts_path %>
+</div>

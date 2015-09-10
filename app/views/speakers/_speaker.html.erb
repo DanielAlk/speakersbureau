@@ -3,10 +3,6 @@
 		<%= image_tag speaker.profile_image(:standard), class: 'cover' %>
 		<h3 class="primary"><%= speaker.full_name %></h3>
 		<p><%= speaker.description %></p>
-		<% if false %>
-			<%= link_to 'Edit', edit_speaker_path(speaker) %>
-			<%= link_to 'Destroy', speaker, method: :delete, data: { confirm: 'Are you sure?' } %>
-		<% end %>
 		<%= link_to 'Leer mas', speaker, class: 'arrow-right' %>
 	</div>
 </div>

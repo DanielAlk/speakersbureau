@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <%= render 'layouts/head' %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="admin">
+  <%= render 'admins/section_image' %>
+	<%= render 'layouts/navigation' %>
+	<%= yield %>
+  <%= render 'layouts/footer' %>
+<script>
+  $(function() {
+    Utils.init();
+    <% if content_for? :extra_js %>
+      <%= yield :extra_js %>
+    <% end %>
+    <% if notice.present? %>
+      alert('<%= notice %>');
+    <% end %>
+    <% if alert.present? %>
+      alert('<%= alert %>');
+    <% end %>
+  });
+</script>
+<%= tinymce %>
+</body>
+</html>

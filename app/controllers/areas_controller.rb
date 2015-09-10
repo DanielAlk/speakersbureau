@@ -1,10 +1,11 @@
 class AreasController < ApplicationController
   before_action :set_area, only: [:show, :edit, :update, :destroy]
+  layout 'admin', except: [:show, :index]
 
   # GET /areas
   # GET /areas.json
   def index
-    show
+    show      
   end
 
   # GET /areas/1

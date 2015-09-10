@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  layout 'admin', only: [:new, :edit]
 
   # GET /posts
   # GET /posts.json

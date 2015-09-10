@@ -1,6 +1,7 @@
 class SpeakersController < ApplicationController
 	before_action :set_speaker, only: [:show, :edit, :update, :destroy]
 	before_action :get_areas, only: [:new, :edit, :index]
+	layout 'admin', only: [:new, :edit]
 
 	# GET /speakers
 	# GET /speakers.json

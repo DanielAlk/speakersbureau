@@ -1,15 +1,19 @@
 Rails.application.routes.draw do
 
-  get 'admin/index'
-
-  devise_for :admins
   root 'home#index'
+
+  get 'admin' => 'admins#index'
+  devise_for :admins, controllers: { 
+    registrations: 'admins/registrations', 
+    sessions: 'admins/sessions', 
+    passwords: 'admins/passwords'
+  }
 
   resources :posts, path: 'blog'
   resources :speakers
   resources :areas
   get 'contacto' => 'contacts#new', as: :new_contact
-  resources :contacts, path: 'contacto'
+  resources :contacts, path: 'contactos'
   
   get 'tb-asociados' => 'static_pages#brand', as: :brand
   # The priority is based upon order of creation: first created -> highest priority.
