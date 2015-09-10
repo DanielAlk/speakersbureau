@@ -1,4 +1,45 @@
 <div class="container">
-	<%= link_to 'Crear nuevo Admin', new_admin_registration_path %>
-	<%= link_to 'Editar usuario', edit_admin_registration_path %>
+	<% if current_admin.administrator? %>
+		<div class="row">
+			<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Admin Accounts</h3>
+				  </div>
+				  <div class="panel-body">
+						<%= link_to 'Crear nuevo usuario admin', new_admin_registration_path, class: 'btn btn-success btn-block' %>
+						<%= link_to 'Listar usuarios admin', admin_list_path, class: 'btn btn-info btn-block' %>
+					</div>
+				</div>
+			</div>
+		</div>
+	<% end %>
+	<div class="row">
+		<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">Admin Database</h3>
+			  </div>
+			  <div class="panel-body">
+			  	<%= link_to 'New Speaker', new_speaker_path, class: 'btn btn-block btn-primary' %>
+			  	<%= link_to 'New Post', new_post_path, class: 'btn btn-block btn-success' %>
+			  	<%= link_to 'New Area', new_area_path, class: 'btn btn-block btn-info' %>
+			  	<%= link_to 'Contactos', contacts_path, class: 'btn btn-block btn-warning' %>
+			  </div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">My Account</h3>
+			  </div>
+			  <div class="panel-body">
+					<%= link_to 'Editar usuario', edit_admin_registration_path, class: 'btn btn-info btn-block' %>
+					<%= link_to 'Sign out', destroy_admin_session_path, method: 'delete', class: 'btn btn-primary btn-block' %>
+			  </div>
+			</div>
+		</div>
+	</div>
 </div>

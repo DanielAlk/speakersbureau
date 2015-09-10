@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get 'admin' => 'admins#index'
+  get 'admin/list' => 'admins#list'
+  match 'admin' => 'admins#destroy', via: :delete
   devise_for :admins, controllers: { 
     registrations: 'admins/registrations', 
     sessions: 'admins/sessions', 

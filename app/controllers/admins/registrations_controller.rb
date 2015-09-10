@@ -1,17 +1,28 @@
 class Admins::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
+  skip_before_filter :require_no_authentication, only: [:new, :create]
   layout 'admin'
 
   # GET /resource/sign_up
-  # def new
-  #   super
-  # end
+  def new
+    warden.authenticate!
+    if current_admin.administrator?
+      super
+    else
+      redirect_to admin_path, notice: "You are not allowed to access that page"
+    end
+  end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    warden.authenticate!
+    if current_admin.administrator?
+      super
+    else
+      redirect_to admin_path, notice: "You are not allowed to access that page"
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -24,9 +35,13 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   # end
 
   # DELETE /resource
-  # def destroy
-  #   super
-  # end
+  def destroy
+    if current_admin.regular?
+      super
+    else
+      redirect_to admin_path, notice: "Administrator account can not be deleted"
+    end
+  end
 
   # GET /resource/cancel
   # Forces the session data which is usually expired after sign

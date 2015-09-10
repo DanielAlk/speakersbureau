@@ -2,11 +2,10 @@
 	<div class="admin-buttons">
 		<%= link_to 'Admin', admin_path %>
 		<%= link_to 'Sign out', destroy_admin_session_path, method: 'delete' %>
-		<%= link_to 'Edit Admin', edit_admin_registration_path %>
+		<%= link_to 'Contactos', contacts_path %>
 		<%= link_to 'New Speaker', new_speaker_path %>
 		<%= link_to 'New Post', new_post_path %>
 		<%= link_to 'New Area', new_area_path %>
-		<%= link_to 'Ver contactos', contacts_path %>
 		<% if @speaker.present? && @speaker.name.present? %>
 			<div>
 				<div>Speaker</div>
