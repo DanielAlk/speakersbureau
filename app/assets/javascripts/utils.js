@@ -23,13 +23,25 @@ Utils.init = function() {
 };
 
 Utils.newContactForm = function() {
-	$('#new_contact').submit(function(e) {
-		e.preventDefault();
-		var form = this;
-		$.post(form.action, $(form).serialize(), function(response) {
-			$(form).hide();
-			$('#new_contact_success').show();
-		}, 'json');
+	$('select.dropdown').dropdown({ allowAdditions: true });
+	$('#new_contact').validate({
+		rules: {
+			'contact[name]': 'required',
+			'contact[email]': {
+				required: true,
+				email: true
+			},
+			'contact[event_details]': {
+				required: true,
+				minlength: 15
+			}
+		},
+		submitHandler: function(form) {
+			$.post(form.action, $(form).serialize(), function(response) {
+				$(form).hide();
+				$('#new_contact_success').show();
+			}, 'json');
+		}
 	});
 };
 
