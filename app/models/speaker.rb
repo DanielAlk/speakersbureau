@@ -57,6 +57,8 @@ class Speaker < ActiveRecord::Base
 		output
 	end
 
+	ransacker :search
+
 	private
 		def slug_candidates
 			[

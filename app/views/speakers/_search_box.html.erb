@@ -12,13 +12,15 @@
 	  	<% end %>
 	  </div>
 	</div>
-	<div class="btn-group-justified">
-		<div class="btn-group search-group" role="group">
-			<span class="glyphicon glyphicon-search"></span>
-			<input type="text" class="form-control" placeholder="Por palabra">
+	<%= search_form_for @q do |f| %>
+		<div class="btn-group-justified">
+			<div class="btn-group search-group" role="group">
+				<span class="glyphicon glyphicon-search"></span>
+			  <%= f.search_field :search, class: 'form-control', placeholder: 'Por palabra' %>
+			</div>
+		  <div class="btn-group" role="group">
+			  <%= f.submit 'Buscar', class: 'btn btn-primary' %>
+		  </div>
 		</div>
-	  <div class="btn-group" role="group">
-	  	<a href="#" class="btn btn-primary" role="button">Buscar</a>
-	  </div>
-	</div>
+	<% end %>
 </div>

@@ -7,7 +7,9 @@ class SpeakersController < ApplicationController
 	# GET /speakers
 	# GET /speakers.json
 	def index
-		@speakers = Speaker.order :last_name
+		unless params[:q]
+			@speakers = Speaker.order :last_name
+		end
 	end
 
 	# GET /speakers/1
@@ -78,7 +80,7 @@ class SpeakersController < ApplicationController
 		end
 
 		def get_areas
-			@areas = Area.order :title
+			@areas = Area.order(:title)
 		end
 
 		def save_related_objects
