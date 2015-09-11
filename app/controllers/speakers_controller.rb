@@ -7,14 +7,13 @@ class SpeakersController < ApplicationController
 	# GET /speakers
 	# GET /speakers.json
 	def index
-		unless params[:q]
-			@speakers = Speaker.order :last_name
-		end
+		@speakers = Speaker.order :last_name
 	end
 
 	# GET /speakers/1
 	# GET /speakers/1.json
 	def show
+		@similar_speakers = Speaker.ransack(areas_title_cont_any: @speaker.area_titles).result(distinct: true).sample(3)
 	end
 
 	# GET /speakers/new

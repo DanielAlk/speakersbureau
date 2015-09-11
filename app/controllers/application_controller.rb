@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
 		def ransack_search_object
 			search = params[:q].present? ? params[:q][:search].split(/\s/) : params[:q]
 			@q = Speaker.ransack(name_or_last_name_or_description_or_information_or_areas_title_cont_any: search)
-			@speakers = @q.result(distinct: true)
+			@speakers_result = @q.result(distinct: true).order :last_name if params[:q].present?
 		end
 end

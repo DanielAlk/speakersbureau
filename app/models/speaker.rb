@@ -57,6 +57,14 @@ class Speaker < ActiveRecord::Base
 		output
 	end
 
+	def area_titles
+		area_titles = []
+		self.areas.each do |a|
+			area_titles << a.title
+		end
+		area_titles
+	end
+
 	ransacker :search
 
 	private
