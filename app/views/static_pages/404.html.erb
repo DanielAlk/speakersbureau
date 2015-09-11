@@ -1,0 +1,12 @@
+<%= render 'admins/section_image' %>
+<div class="container text-center">
+  <h3>No hemos podido encontrar la página que estás buscando.</h3>
+  <h5>¿Quizás buscabas otra cosa?</h5>
+  <ul class="list-inline space-bottom-plus">
+  	<li><%= link_to 'Speakers', speakers_path %></li>
+  	<li><%= link_to 'Area', areas_path %></li>
+  	<li><%= link_to 'Blog', posts_path %></li>
+  	<li><%= link_to 'TB & Asociados', brand_path, target: '_blank' %></li>
+  	<li><%= link_to 'Contacto', new_contact_path %></li>
+  </ul>
+</div>

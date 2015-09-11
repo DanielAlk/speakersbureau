@@ -23,4 +23,6 @@ Rails.application.routes.draw do
   
   get 'tb-asociados' => 'static_pages#brand', as: :brand
 
+  match '*not_found', :to => 'application#routing_error', via: :all
+  
 end

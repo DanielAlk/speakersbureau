@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   before_action :ransack_search_object
 
+  def routing_error(error = 'Routing error', status = :not_found, exception=nil)
+    render template: 'static_pages/404.html.erb', status: 404, content_type: 'text/html'
+  end
+
   private
 
 		def set_locale

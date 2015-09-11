@@ -68,36 +68,36 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
-  # You can put the params you want to permit in the empty array.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.for(:sign_up) << :attribute
-  # end
+    # You can put the params you want to permit in the empty array.
+    # def configure_sign_up_params
+    #   devise_parameter_sanitizer.for(:sign_up) << :attribute
+    # end
 
-  # You can put the params you want to permit in the empty array.
-  # def configure_account_update_params
-  #   devise_parameter_sanitizer.for(:account_update) << :attribute
-  # end
+    # You can put the params you want to permit in the empty array.
+    # def configure_account_update_params
+    #   devise_parameter_sanitizer.for(:account_update) << :attribute
+    # end
 
-  # The path used after sign up.
-  def after_sign_up_path_for(resource)
-    admin_path
-  end
-
-  def after_update_path_for(resource)
-    admin_path
-  end
-
-  # The path used after sign up for inactive accounts.
-  # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
-  # end
-
-  # Sets minimum password length to show to user
-  def set_minimum_password_length
-    if devise_mapping.validatable?
-      @minimum_password_length = resource_class.password_length.min
+    # The path used after sign up.
+    def after_sign_up_path_for(resource)
+      admin_path
     end
-  end
+
+    def after_update_path_for(resource)
+      admin_path
+    end
+
+    # The path used after sign up for inactive accounts.
+    # def after_inactive_sign_up_path_for(resource)
+    #   super(resource)
+    # end
+
+    # Sets minimum password length to show to user
+    def set_minimum_password_length
+      if devise_mapping.validatable?
+        @minimum_password_length = resource_class.password_length.min
+      end
+    end
 end
