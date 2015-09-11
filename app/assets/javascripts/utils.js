@@ -32,3 +32,13 @@ Utils.newContactForm = function() {
 		}, 'json');
 	});
 };
+
+Utils.speakersForm = function(areas, videos) {
+	$('select.dropdown').dropdown({ allowAdditions: true });
+	$('.dropdown.multiple.speaker-areas-dropdown').dropdown('set selected', areas);
+	$('.dropdown.multiple.speaker-videos-dropdown').dropdown('set selected', videos);
+	$('label[for=speaker_images_save_method] input[type=radio]').change(function(e) {
+	  if (this.value == 'destroy' && this.checked) $('#speaker_images_').prop('disabled', true);
+	  else $('#speaker_images_').prop('disabled', false);
+	});
+}

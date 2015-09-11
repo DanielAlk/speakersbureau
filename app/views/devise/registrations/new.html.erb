@@ -4,21 +4,21 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
 
-    <div class="field">
-      <%= f.label :email %><br />
+    <div class="form-group">
+      <%= f.label :email %>
       <%= f.email_field :email, autofocus: true, class: 'form-control' %>
     </div>
 
-    <div class="field">
+    <div class="form-group">
       <%= f.label :password %>
       <% if @validatable %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em>
-      <% end %><br />
+      <p>(<%= @minimum_password_length %> characters minimum)</p>
+      <% end %>
       <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
     </div>
 
-    <div class="field">
-      <%= f.label :password_confirmation %><br />
+    <div class="form-group">
+      <%= f.label :password_confirmation %>
       <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
     </div>
 

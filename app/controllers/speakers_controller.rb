@@ -82,13 +82,19 @@ class SpeakersController < ApplicationController
 		end
 
 		def save_related_objects
-			if params['speaker_images'] or params['speaker_images_save_method'] == 'destroy'
-				if params['speaker_images_save_method'] == 'replace' or params['speaker_images_save_method'] == 'destroy'
+			case params['speaker_images_save_method']
+			when 'add', 'replace', 'destroy'
+				speaker_images_save_method = params['speaker_images_save_method']
+			else
+				speaker_images_save_method = 'replace'
+			end
+			if params['speaker_images'] or speaker_images_save_method == 'destroy'
+				if speaker_images_save_method == 'replace' or speaker_images_save_method == 'destroy'
 					@speaker.speaker_images.each do |image|
 						image.destroy
 					end
 				end
-				if params['speaker_images_save_method'] == 'replace' or params['speaker_images_save_method'] == 'add'
+				if speaker_images_save_method == 'replace' or speaker_images_save_method == 'add'
 					params['speaker_images'].each do |image|
 						@speaker.speaker_images.create(image: image)
 					end
