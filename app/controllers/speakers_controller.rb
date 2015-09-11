@@ -82,14 +82,38 @@ class SpeakersController < ApplicationController
 		end
 
 		def save_related_objects
-			if params['speaker_images']
-				@speaker.speaker_images.each do |image|
-					image.destroy
+			if params['speaker_images'] or params['speaker_images_save_method'] == 'destroy'
+				if params['speaker_images_save_method'] == 'replace' or params['speaker_images_save_method'] == 'destroy'
+					@speaker.speaker_images.each do |image|
+						image.destroy
+					end
 				end
-				params['speaker_images'].each do |image|
-					@speaker.speaker_images.create(image: image)
+				if params['speaker_images_save_method'] == 'replace' or params['speaker_images_save_method'] == 'add'
+					params['speaker_images'].each do |image|
+						@speaker.speaker_images.create(image: image)
+					end
 				end
 			end
+
+			if params['speaker_videos'] and params['speaker_videos'].first.present?
+				video_urls = []
+				@speaker.speaker_videos.each do |video|
+					video_urls << video.url
+					unless params['speaker_videos'].include? video.url
+						video.destroy
+					end
+				end
+				params['speaker_videos'].each do |video|
+					unless video_urls.include? video
+						@speaker.speaker_videos.create(url: video)
+					end
+				end
+			elsif not @speaker.speaker_videos.blank?
+				@speaker.speaker_videos.each do |v|
+					v.destroy
+				end
+			end
+				
 			if params['speaker_areas'] and params['speaker_areas'].first.present?
 				sp_area_titles = []
 				@speaker.speaker_areas.each do |spa|
@@ -106,6 +130,10 @@ class SpeakersController < ApplicationController
 						end
 						@speaker.speaker_areas.create(area: a)
 					end
+				end
+			elsif not @speaker.speaker_areas.blank?
+				@speaker.speaker_areas.each do |a|
+					a.destroy
 				end
 			end
 		end

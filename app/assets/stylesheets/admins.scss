@@ -9,4 +9,8 @@
 body.admin>.container { margin-bottom: 50px; }
 body.admin td, body.admin th { padding-right: 15px; padding-bottom: 2px; }
 body.admin [type=submit] { margin-top: 30px; margin-bottom: 15px; }
-body.admin label { margin-top: 15px; }
+body.admin form p { margin: -7px 0 0; }
+body.admin form label { display: block; }
+body.admin form label>span { font-weight: 400; }
+body.admin form [type=checkbox] { margin-left: 10px; }
+body.admin form [type=radio] { margin-left: 10px; margin-right: 5px; }

@@ -11,16 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
+  <div class="form-group">
+    <%= f.label :title, 'Titulo' %>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :body %><br>
+  <div class="form-group">
+    <%= f.label :body, 'Texto completo' %>
     <%= f.text_area :body, class: 'tinymce' %>
   </div>
-  <div class="field">
-    <%= f.label :video %><br>
+  <div class="form-group">
+    <%= f.label :video, 'Video de YouTube' %>
+    <p>URL completa del video de YouTube. Ej: <em>https://www.youtube.com/watch?v=2DJofghewDs</em></p>
     <%= f.text_field :video, class: 'form-control' %>
   </div>
   <div class="actions">

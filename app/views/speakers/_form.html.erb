@@ -11,51 +11,64 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
+  <div class="form-group">
+    <%= f.label :name, 'Nombre' %>
     <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
+  <div class="form-group">
+    <%= f.label :last_name, 'Apellido' %>
     <%= f.text_field :last_name, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
+  <div class="form-group">
+    <%= f.label :email %>
     <%= f.text_field :email, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br>
+  <div class="form-group">
+    <%= f.label :description, 'Descripción' %>
+    <p>Texto corto descriptivo del speaker</p>
     <%= f.text_field :description, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :information %><br>
+  <div class="form-group">
+    <%= f.label :information, 'Detalle / Información' %>
     <%= f.text_area :information, class: 'tinymce form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :visible_on_home %><br>
-    <%= f.check_box :visible_on_home %>
+  <div class="form-group">
+    <%= f.label :visible_on_home do %>
+      ¿Visible en carousel? <%= f.check_box :visible_on_home %>
+    <% end %>
   </div>
-  <div class="field">
-    <%= f.label :twitter %><br>
+  <div class="form-group">
+    <%= f.label :twitter %>
+    <p>URL completa del perfil de twitter. Ej: <em>https://twitter.com/nombredespeaker</em></p>
     <%= f.text_field :twitter, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :avatar %><br>
+  <div class="form-group">
+    <%= f.label :avatar %>
     <% if @speaker.avatar.present? %>
       <p>Al subir un avatar se reemplazará el avatar actual</p>
     <% end %>
     <%= f.file_field :avatar, accept: 'image/*', class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= label_tag 'speaker_images_' %><br>
+  <div class="form-group">
+    <%= label_tag 'speaker_images_', 'Imagenes' %>
     <% if @speaker.speaker_images.first.present? %>
-      <p>Al subir fotos se reemplazarán las fotos actuales (<%= pluralize(@speaker.speaker_images.count, 'foto') %> subidas) </p>
+      <%= label_tag 'speaker_images_save_method' do %>
+        <span>¿Reemplazar fotos actuales? (<%= pluralize(@speaker.speaker_images.count, 'foto') %> subidas)</span>
+        <%= radio_button_tag 'speaker_images_save_method', 'replace', selected: true; %> <span>reemplazar</span>
+        <%= radio_button_tag 'speaker_images_save_method', 'add' %> <span>agregar</span>
+        <%= radio_button_tag 'speaker_images_save_method', 'destroy' %> <span>borrar todas</span>
+      <% end %>
     <% end %>
     <%= file_field_tag 'speaker_images[]', multiple: true, accept: 'image/*', class: 'form-control' %>
   </div>
-  <div class="field" style="margin-bottom:15px;">
-    <%= label_tag 'speaker_areas' %><br>
-    <%= select_tag 'speaker_areas', options_from_collection_for_select(@areas, 'title', 'title'), multiple: true, class: 'form-control dropdown search' %>
+  <div class="form-group">
+    <%= label_tag 'speaker_videos', 'Videos YouTube' %>
+    <p>URL completa del video de YouTube. Ej: <em>https://www.youtube.com/watch?v=2DJofghewDs</em></p>
+    <%= select_tag 'speaker_videos', options_from_collection_for_select(@speaker.speaker_videos, 'url', 'url'), multiple: true, class: 'form-control dropdown search speaker-videos-dropdown' %>
+  </div>
+  <div class="form-group" style="margin-bottom:15px;">
+    <%= label_tag 'speaker_areas', 'Areas' %>
+    <%= select_tag 'speaker_areas', options_from_collection_for_select(@areas, 'title', 'title'), multiple: true, class: 'form-control dropdown search speaker-areas-dropdown' %>
   </div>
   <div class="actions">
     <%= f.submit %>
@@ -64,5 +77,6 @@
 
 <% content_for :extra_js do %>
   $('select.dropdown').dropdown({ allowAdditions: true });
-  $('.dropdown.multiple').dropdown('set selected', <%= selected_areas(@speaker.areas) %>);
+  $('.dropdown.multiple.speaker-areas-dropdown').dropdown('set selected', <%= selected_areas(@speaker.areas) %>);
+  $('.dropdown.multiple.speaker-videos-dropdown').dropdown('set selected', <%= @speaker.videos_url.to_s.html_safe %>);
 <% end %>

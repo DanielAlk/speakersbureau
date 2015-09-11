@@ -31,11 +31,22 @@ class Speaker < ActiveRecord::Base
 		videos = []
 		self.speaker_videos.each do |sv|
 			url = sv.url
-			url['watch?v=']= 'embed/'
-			videos << { :url => url, :title => sv.title }
+			if url['watch?v=']
+				url['watch?v=']= 'embed/'
+				videos << { :url => url, :title => sv.title }
+			end
 		end
 		return videos
 	end
+
+	def videos_url
+		videos_url = []
+		self.speaker_videos.each do |sv|
+			videos_url << sv.url
+		end
+		return videos_url
+	end
+
 
 	def area_list
 		last_index = self.areas.count-1

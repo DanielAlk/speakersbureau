@@ -1,19 +1,18 @@
 <div class="container">
-	<% if current_admin.administrator? %>
-		<div class="row">
-			<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-				<div class="panel panel-default">
-				  <div class="panel-heading">
-				    <h3 class="panel-title">Admin Accounts</h3>
-				  </div>
-				  <div class="panel-body">
-						<%= link_to 'Crear nuevo usuario admin', new_admin_registration_path, class: 'btn btn-success btn-block' %>
-						<%= link_to 'Listar usuarios admin', admin_list_path, class: 'btn btn-info btn-block' %>
-					</div>
-				</div>
+	<div class="row">
+		<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+			<div class="panel panel-default">
+			  <div class="panel-heading">
+			    <h3 class="panel-title">My Account <span class="pull-right"><%= current_admin.email %></span></h3>
+			  </div>
+			  <div class="panel-body">
+					<%= link_to 'Editar usuario', edit_admin_registration_path, class: 'btn btn-info btn-block' %>
+					<%= link_to 'Sign out', destroy_admin_session_path, method: 'delete', class: 'btn btn-danger btn-block' %>
+					<%= link_to 'Borrar cuenta', admin_registration_path, method: 'delete', class: 'btn btn-primary btn-block' unless current_admin.administrator? %>
+			  </div>
 			</div>
 		</div>
-	<% end %>
+	</div>
 	<div class="row">
 		<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
 			<div class="panel panel-default">
@@ -29,17 +28,19 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
-			<div class="panel panel-default">
-			  <div class="panel-heading">
-			    <h3 class="panel-title">My Account</h3>
-			  </div>
-			  <div class="panel-body">
-					<%= link_to 'Editar usuario', edit_admin_registration_path, class: 'btn btn-info btn-block' %>
-					<%= link_to 'Sign out', destroy_admin_session_path, method: 'delete', class: 'btn btn-primary btn-block' %>
-			  </div>
+	<% if current_admin.administrator? %>
+		<div class="row">
+			<div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+				<div class="panel panel-default">
+				  <div class="panel-heading">
+				    <h3 class="panel-title">Admin Accounts</h3>
+				  </div>
+				  <div class="panel-body">
+						<%= link_to 'Crear nuevo usuario admin', new_admin_registration_path, class: 'btn btn-success btn-block' %>
+						<%= link_to 'Listar usuarios admin', admin_list_path, class: 'btn btn-info btn-block' %>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
+	<% end %>
 </div>
