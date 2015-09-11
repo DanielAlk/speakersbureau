@@ -9,6 +9,15 @@ class AreasController < ApplicationController
     show      
   end
 
+  def empty
+    areas = Area.order :title
+    @areas = []
+    areas.each do |a|
+      @areas << a if a.speakers.blank?
+    end
+    render :index
+  end
+
   # GET /areas/1
   # GET /areas/1.json
   def show

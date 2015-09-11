@@ -13,7 +13,11 @@ Rails.application.routes.draw do
 
   resources :posts, path: 'blog'
   resources :speakers
-  resources :areas
+  resources :areas do
+    collection do
+      get 'empty'
+    end
+  end
   get 'contacto' => 'contacts#new', as: :new_contact
   resources :contacts, path: 'contactos'
   

@@ -1,5 +1,9 @@
 <div class="container">
-  <h1>Listing Areas</h1>
+  <% if action_name == 'empty' %>
+    <h1>Listing Empty Areas</h1>
+  <% else %>
+    <h1>Listing Areas</h1>
+  <% end %>
 
   <table>
     <thead>
