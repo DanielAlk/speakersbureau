@@ -4,7 +4,7 @@
   <%= render 'layouts/head' %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class="<%= 'mobile' if browser.mobile? %>">
 	<%= render 'layouts/navigation' %>
 	<%= yield %>
   <%= render 'layouts/brand' %>

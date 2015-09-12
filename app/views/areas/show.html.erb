@@ -1,12 +1,15 @@
 <%= render 'section_image' %>
 <div class="container">
+	<% if @area.present? %>
+	  <h3 class="primary fill-grey title-block visible-xs"><%= @area.title %></h3>
+	<% end %>
   <div class="btn-toolbar" role="toolbar">
     <div class="btn-group" role="group">
       <%= dropdown 'btn-primary', 'Filtrar por Area', 'Buscar Area', @areas do |area| %>
         <div class="item" data-value="<%= area_path(area) %>"><%= area.title %></div>
       <% end %>
     </div>
-    <h3 class="btn-toolbar-title primary pull-right"><%= @area.title if @area.present? %></h3>
+    <h3 class="btn-toolbar-title primary pull-right hidden-xs"><%= @area.title if @area.present? %></h3>
   </div>
 </div>
 <%= render 'speakers/preview_boxes', speakers: @speakers %>

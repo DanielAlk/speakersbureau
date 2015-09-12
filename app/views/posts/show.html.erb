@@ -1,17 +1,19 @@
 <%= render 'section_image', show_back_button: true %>
 <div class="container">
 	<div class="row">
-		<div class="col-xs-12 col-sm-5 col-sm-push-7">
-			<div class="fill-grey last-posts fill-padding-left">
-				<h3>Recientes</h3>
-				<% @last_posts.each do |post| %>
-					<hr>
-					<%= link_to post do %>
-						<h4 class="primary"><%= post.title %><span class="default"> - <%= post.date_complete %></span></h4>
+		<% unless browser.mobile? %>
+			<div class="col-xs-12 col-sm-5 col-sm-push-7 hidden-xs">
+				<div class="fill-grey last-posts fill-padding-left">
+					<h3>Recientes</h3>
+					<% @last_posts.each do |post| %>
+						<hr>
+						<%= link_to post do %>
+							<h4 class="primary"><%= post.title %><span class="default"> - <%= post.date_complete %></span></h4>
+						<% end %>
 					<% end %>
-				<% end %>
+				</div>
 			</div>
-		</div>
+		<% end %>
 		<div class="col-xs-12 col-sm-7 col-sm-pull-5">
 			<div class="youtube-video fill-padding-right">
 				<iframe src="<%= @post.video_url %>" frameborder="0" allowfullscreen></iframe>

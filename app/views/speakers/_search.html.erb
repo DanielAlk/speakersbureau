@@ -1,20 +1,26 @@
 <div class="container speaker-search-bar">
-  <div class="hidden-lg hidden-md"><span class="btn btn-primary btn-block text-left inspace-sides-6">Encuentra un speaker</span></div>
+  <div class="hidden-lg hidden-md"><span class="btn btn-primary btn-block text-left inspace-sides-6"><%= title rescue 'Encuentra un speaker' %></span></div>
   <%= search_form_for @speakers_search do |f| %>
     <div class="btn-group btn-group-justified" role="group">
       <div class="btn-group hidden-sm hidden-xs" role="group">
-        <span class="btn btn-primary">Encuentra un speaker</span>
+        <span class="btn btn-primary"><%= title rescue 'Encuentra un speaker' %></span>
       </div>
       <div class="btn-group" role="group">
         <%= dropdown 'btn-invert', 'Por nombre', 'Buscar speaker', @speakers.each do |speaker| %>
           <div class="item" data-value="<%= speaker_path(speaker) %>"><%= speaker.full_name %></div>
         <% end %>
       </div>
+      <% if browser.mobile? %>
+        </div><div class="btn-group btn-group-justified" role="group">
+      <% end %>
       <div class="btn-group" role="group">
         <%= dropdown 'btn-invert', 'Por tema', 'Buscar tema', @areas do |area| %>
           <div class="item" data-value="<%= area_path(area) %>"><%= area.title %></div>
         <% end %>
       </div>
+      <% if browser.mobile? %>
+        </div><div class="btn-group btn-group-justified" role="group">
+      <% end %>
       <div class="btn-group search-group" role="group">
         <span class="glyphicon glyphicon-search"></span>
         <%= f.search_field :q, class: 'form-control', placeholder: 'Por palabra' %>

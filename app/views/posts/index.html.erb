@@ -1,3 +1,3 @@
 <%= render 'section_image' %>
 <%= render 'highlighted', post: @posts.first, show_title: true %>
-<%= render 'preview_boxes', posts: @posts %>
+<%= render 'preview_boxes', posts: @posts.offset(1) %>

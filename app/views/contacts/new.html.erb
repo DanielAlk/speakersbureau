@@ -10,7 +10,7 @@
 		</div>
 		<div class="col-xs-12 col-sm-6">
 			<%= render 'contact_box', box_class: 'fill-light-grey box space-bottom-plus' %>
-			<%= render 'speakers/search_box' %>
+			<%= render browser.mobile? ? 'speakers/search' : 'speakers/search_box', title: 'Buscar Speaker' %>
 		</div>
 	</div>
 </div>
