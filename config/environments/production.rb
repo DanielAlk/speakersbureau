@@ -60,11 +60,22 @@ Rails.application.configure do
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   # config.action_controller.asset_host = 'http://assets.example.com'
 
+  # ActionMailer Config
+  config.action_mailer.default_url_options = { host: ENV["WEBAPP_DOMAIN"] }
+  config.action_mailer.smtp_settings = {
+    address: ENV['NOTIFICATIONS_MAILER_ADDRESS'],
+    port: 25,
+    domain: ENV["DOMAIN_NAME"],
+    authentication: "plain",
+    enable_starttls_auto: true,
+    user_name: ENV['NOTIFICATIONS_MAILER_USERNAME'],
+    password: ENV['NOTIFICATIONS_MAILER_PASSWORD']
+  }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
-
-  # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
@@ -79,7 +90,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  # Devise action mailer
-  config.action_mailer.default_url_options = { host: 'speakersbureau.vxct1412.avnam.net' }
 end

@@ -31,3 +31,6 @@
 /public/assets/*
 /vendor/bundle/*
 /private_paperclip/
+
+# Ignore application configuration
+/config/application.yml
