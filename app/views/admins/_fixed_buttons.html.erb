@@ -1,4 +1,8 @@
 <% if admin_signed_in? %>
+	<div class="admin-info">
+		<b>Logueado como: <%= current_admin.email %></b>
+		<%= '<em>Usuario administrador</em>'.html_safe if current_admin.administrator? %>
+	</div>
 	<div class="admin-buttons">
 		<%= link_to 'Admin', admin_path %>
 		<%= link_to 'Sign out', destroy_admin_session_path, method: 'delete' %>
