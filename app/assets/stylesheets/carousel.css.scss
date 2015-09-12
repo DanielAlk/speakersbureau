@@ -4,7 +4,7 @@
   position: relative; z-index: 10; text-align: left; padding-bottom: 100px; width: 1140px;
   left: auto; right: auto; padding: 0; margin: 0 auto; top: 150px; padding-right: 50%;
 }
-.carousel .item { background-color: #777; }
+.carousel .item { background-color: #777; overflow: hidden; }
 .carousel-inner > .item > img {
   position: absolute; top: 0; left: 0; width: auto;
   max-width: none; left: 50%; margin-left: -603px;

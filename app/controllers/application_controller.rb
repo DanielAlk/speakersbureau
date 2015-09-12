@@ -16,8 +16,17 @@ class ApplicationController < ActionController::Base
 		end
 
 		def ransack_search_object
-			search = params[:q].present? ? params[:q][:search].split(/\s/) : params[:q]
-			@q = Speaker.ransack(name_or_last_name_or_description_or_information_or_areas_title_cont_any: search)
-			@speakers_result = @q.result(distinct: true).order :last_name if params[:q].present?
+			search = params[:search][:q].split(/\s/) rescue params[:search]
+			@speakers_search = Speaker.ransack(name_or_last_name_or_description_or_information_or_areas_title_cont_any: search)
+			if params[:search].present? and params[:search][:q].present?
+        speakers_result = @speakers_search.result(distinct: true)
+        speakers_result.each do |speaker|
+          if speaker.full_name.downcase == params[:search][:q].downcase
+            @speakers_result = [ speaker ]
+            break
+          end
+        end
+        @speakers_result = speakers_result if @speakers_result.blank?
+      end
 		end
 end

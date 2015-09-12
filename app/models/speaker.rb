@@ -9,6 +9,8 @@ class Speaker < ActiveRecord::Base
 	has_many :speaker_videos, :dependent => :destroy
 	has_many :areas, through: :speaker_areas
 
+	ransacker :q
+
 	def full_name
 		self.name + ' ' + self.last_name
 	end
@@ -64,8 +66,6 @@ class Speaker < ActiveRecord::Base
 		end
 		area_titles
 	end
-
-	ransacker :search
 
 	private
 		def slug_candidates

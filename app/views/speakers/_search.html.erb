@@ -1,7 +1,8 @@
 <div class="container speaker-search-bar">
-  <%= search_form_for @q do |f| %>
+  <div class="hidden-lg hidden-md"><span class="btn btn-primary btn-block text-left inspace-sides-6">Encuentra un speaker</span></div>
+  <%= search_form_for @speakers_search do |f| %>
     <div class="btn-group btn-group-justified" role="group">
-      <div class="btn-group" role="group">
+      <div class="btn-group hidden-sm hidden-xs" role="group">
         <span class="btn btn-primary">Encuentra un speaker</span>
       </div>
       <div class="btn-group" role="group">
@@ -16,10 +17,10 @@
       </div>
       <div class="btn-group search-group" role="group">
         <span class="glyphicon glyphicon-search"></span>
-        <%= f.search_field :search, class: 'form-control', placeholder: 'Por palabra' %>
+        <%= f.search_field :q, class: 'form-control', placeholder: 'Por palabra' %>
       </div>
       <div class="btn-group" role="group">
-        <%= f.submit 'Buscar', class: 'btn btn-primary' %>
+        <%= f.submit 'Buscar', class: 'btn btn-primary', name: nil %>
       </div>
     </div>
   <% end %>

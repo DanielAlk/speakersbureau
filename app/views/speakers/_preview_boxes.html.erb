@@ -1,8 +1,8 @@
 <div class="container preview-speakers">
 	<div class="row">
-		<% if speakers.empty? and params[:q].present? and params[:q][:search].present? %>
+		<% if speakers.empty? and params[:search].present? and params[:search][:q].present? %>
 			<div class="col-xs-12 text-center speakers-empty">
-				<h4>No se encontraron resultados para: <em><%= params[:q][:search] %></em></h4>
+				<h4>No se encontraron resultados para: <em><%= params[:search][:q] %></em></h4>
 			</div>
 		<% end %>
 		<%= render speakers %>

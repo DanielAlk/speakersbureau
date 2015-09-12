@@ -13,7 +13,7 @@
           <%= image_tag 'logo-main.png', alt: 'Speakers Bureau', class: 'logo-main' %>
         <% end %>
       </div>
-      <%= search_form_for @q do |f| %>
+      <%= search_form_for @speakers_search do |f| %>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li class="<%= nav_class 'speakers' %>"><%= link_to 'Speakers', speakers_path %></li>
@@ -24,7 +24,7 @@
             <li class="hidden-xs hidden-sm">
               <div class="search-group">
                 <span class="glyphicon glyphicon-search"></span>
-                <%= f.search_field :search, class: 'form-control', placeholder: 'BUSCAR' %>
+                <%= f.search_field :q, class: 'form-control', placeholder: 'BUSCAR' %>
               </div>
             </li>
           </ul>
