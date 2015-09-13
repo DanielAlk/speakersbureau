@@ -4,8 +4,8 @@
 	  <h3 class="primary fill-grey title-block visible-xs"><%= @area.title %></h3>
 	<% end %>
   <div class="btn-toolbar" role="toolbar">
-    <div class="btn-group" role="group">
-      <%= dropdown 'btn-primary', 'Filtrar por Area', 'Buscar Area', @areas do |area| %>
+    <div class="btn-group expand-x-xs inspace-0-xs" role="group">
+      <%= dropdown 'btn-primary expand-x-xs', 'Filtrar por Area', 'Buscar Area', @areas do |area| %>
         <div class="item" data-value="<%= area_path(area) %>"><%= area.title %></div>
       <% end %>
     </div>

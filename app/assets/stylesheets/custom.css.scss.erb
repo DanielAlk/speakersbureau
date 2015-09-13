@@ -3,7 +3,10 @@
 
 .container.post-show { margin-bottom: 50px; }
 
-.video-box { padding: 0 45px; margin-bottom: 45px; }
+.video-box { margin-bottom: 45px; }
+@media(min-width: 768px) {
+	.video-box { padding: 0 45px; margin-bottom: 45px; }
+}
 
 .youtube-video { position: relative; padding-bottom: 55%; }
 .youtube-video iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
@@ -24,6 +27,7 @@
 .container.speaker-search-bar .btn-group-justified>.btn-group:first-child span {font-weight: 300; }
 .container.speaker-search-bar .btn-group-justified>.btn-group:last-child { width: 0.4%; }
 .container.speaker-search-bar .btn-group-justified>.btn-group:last-child a { text-transform: uppercase; }
+.container .container.speaker-search-bar { margin-left: -15px; margin-right: -15px; }
 /* SPEAKER SEARCH BAR MOBILE */
 body.mobile .container.speaker-search-bar .btn-group-justified:not(:last-of-type)>.btn-group { width: 1%; }
 

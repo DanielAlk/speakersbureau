@@ -13,7 +13,7 @@
 
   <div class="form-group">
     <%= f.label :name, class: 'sr-only' %>
-    <%= f.text_field :name, class: 'form-control', placeholder: 'Nombre' %>
+    <%= f.text_field :name, class: 'form-control', placeholder: 'Nombre', required: true %>
   </div>
   <div class="form-group">
     <%= f.label :profession, class: 'sr-only' %>
@@ -33,7 +33,7 @@
   </div>
   <div class="form-group">
     <%= f.label :email, class: 'sr-only' %>
-    <%= f.email_field :email, class: 'form-control', placeholder: 'Email' %>
+    <%= f.email_field :email, class: 'form-control', placeholder: 'Email', required: true %>
   </div>
   <div class="form-group space-bottom">
     <%= f.label :phone_number, class: 'sr-only' %>
@@ -45,7 +45,7 @@
   </div>
   <div class="form-group space-bottom">
     <%= f.label :event_details, class: 'sr-only' %>
-    <%= f.text_area :event_details, class: 'form-control', rows: '5', placeholder: 'Indica particularidades de tu evento (perfil de audiencia, concurrencia estimada, tema, etc)' %>
+    <%= f.text_area :event_details, class: 'form-control', rows: '5', placeholder: 'Indica particularidades de tu evento (perfil de audiencia, concurrencia estimada, tema, etc)', required: true, minlength: 15 %>
   </div>
   <div class="form-group space-bottom">
     <%= f.label :past_events_speaker, class: 'sr-only' %>

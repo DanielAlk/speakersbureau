@@ -25,21 +25,14 @@ Utils.init = function() {
 Utils.newContactForm = function() {
 	$('select.dropdown').dropdown({ allowAdditions: true });
 	$('#new_contact').validate({
-		rules: {
-			'contact[name]': 'required',
-			'contact[email]': {
-				required: true,
-				email: true
-			},
-			'contact[event_details]': {
-				required: true,
-				minlength: 15
-			}
-		},
 		submitHandler: function(form) {
 			$.post(form.action, $(form).serialize(), function(response) {
 				$(form).hide();
 				$('#new_contact_success').show();
+				if ($('body').is('.mobile')) {
+					$('#new_contact_success').removeClass('space-bottom-plus');
+					$('html,body').scrollTop(205);
+				};
 			}, 'json');
 		}
 	});
