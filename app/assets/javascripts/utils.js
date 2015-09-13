@@ -46,7 +46,7 @@ Utils.speakersForm = function(areas, videos) {
 	  if (this.value == 'destroy' && this.checked) $('#speaker_images_').prop('disabled', true);
 	  else $('#speaker_images_').prop('disabled', false);
 	});
-}
+};
 
 Utils.adminButtons = function() {
 	$admin_buttons = $('.admin-buttons').css('display', $.cookie('admin_buttons_display'));
@@ -55,4 +55,12 @@ Utils.adminButtons = function() {
 			$.cookie('admin_buttons_display', $admin_buttons.css('display'));
 		});
 	});
-}
+};
+
+Utils.deleteSpeakerImages = function(selector) {
+	$(selector).on('ajax:success', function(e, data, status, xhr) {
+		$(this).parent().fadeOut(function() {
+			$(this).remove();
+		});
+	});
+};

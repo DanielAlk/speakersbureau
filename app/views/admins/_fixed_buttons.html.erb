@@ -1,6 +1,6 @@
 <% if admin_signed_in? %>
 	<div class="admin-info">
-		<b>Logueado como: <%= current_admin.email %></b>
+		<b>Admin: <%= current_admin.email %></b>
 		<%= '<em>Usuario administrador</em>'.html_safe if current_admin.administrator? %>
 	</div>
 	<div class="admin-buttons">

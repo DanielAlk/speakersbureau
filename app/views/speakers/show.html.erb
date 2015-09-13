@@ -52,9 +52,12 @@
         </div>
         <div role="tabpanel" class="tab-pane" id="images">
           <div class="row speaker-profile-images-list">
-            <% @speaker.images(:standard).each do |image| %>
+            <% @speaker.speaker_images.each do |speaker_image| %>
               <div class="col-xs-6">
-                <%= image_tag image, class: 'cover' %>
+                <% if admin_signed_in? %>
+                  <%= link_to 'Eliminar imagen', speaker_image, method: :delete, remote: true, data: { confirm: 'Are you sure?', type: 'json' }, class: 'btn btn-danger btn-block' %>
+                <% end %>
+                <%= image_tag speaker_image.image(:standard), class: 'cover' %>
               </div>
             <% end %>
           </div>
@@ -74,3 +77,8 @@
   <h3 class="primary fill-grey title-block">Speakers Similares</h3>
 </div>
 <%= render 'preview_boxes', speakers: @similar_speakers %>
+<% if admin_signed_in? %>
+  <% content_for :extra_js do %>
+    Utils.deleteSpeakerImages('#images a[data-remote]');
+  <% end %>
+<% end %>

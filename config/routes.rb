@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   resources :posts, path: 'blog'
   resources :speakers
+  resources :speaker_images, only: :destroy
   resources :areas do
     collection do
       get 'empty'
