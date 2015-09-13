@@ -15,30 +15,9 @@ class Speaker < ActiveRecord::Base
 		self.name + ' ' + self.last_name
 	end
 
-	def images(style = nil)
-		images = []
-		self.speaker_images.each do |si|
-			images << si.image(style)
-		end
-		images << "speaker-image-default-#{style}.jpg" unless images.present?
-		return images
-	end
-
 	def profile_image(style = nil)
 		img = self.speaker_images.first
 		return img.present? ? img.image(style) : "speaker-image-default-#{style}.jpg"
-	end
-
-	def videos
-		videos = []
-		self.speaker_videos.each do |sv|
-			url = sv.url
-			if url['watch?v=']
-				url['watch?v=']= 'embed/'
-				videos << { :url => url, :title => sv.title }
-			end
-		end
-		return videos
 	end
 
 	def videos_url
@@ -48,7 +27,6 @@ class Speaker < ActiveRecord::Base
 		end
 		return videos_url
 	end
-
 
 	def area_list
 		last_index = self.areas.count-1

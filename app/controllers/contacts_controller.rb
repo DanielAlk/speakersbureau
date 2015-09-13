@@ -19,6 +19,7 @@ class ContactsController < ApplicationController
     @contact = Contact.new
     @speakers = Speaker.order :last_name
     @areas = Area.order :title
+    @speaker = Speaker.friendly.find(params[:speaker_id]) if params[:speaker_id].present?
   end
 
   # GET /contacts/1/edit

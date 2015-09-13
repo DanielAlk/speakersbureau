@@ -58,4 +58,7 @@
 
 <% content_for :extra_js do %>
   Utils.newContactForm();
+  <% if @speaker.present? %>
+    $('#contact_request_details').parent('.dropdown').dropdown('set selected', [ '<%= @speaker.full_name %>' ]);
+  <% end %>
 <% end %>

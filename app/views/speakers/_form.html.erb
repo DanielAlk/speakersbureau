@@ -54,9 +54,15 @@
     <% if @speaker.speaker_images.first.present? %>
       <%= label_tag 'speaker_images_save_method' do %>
         <span>¿Reemplazar fotos actuales? (<%= pluralize(@speaker.speaker_images.count, 'foto') %> subidas)</span>
-        <%= radio_button_tag 'speaker_images_save_method', 'replace', selected: true; %> <span>reemplazar</span>
-        <%= radio_button_tag 'speaker_images_save_method', 'add' %> <span>agregar</span>
-        <%= radio_button_tag 'speaker_images_save_method', 'destroy' %> <span>borrar todas</span>
+        <%= label_tag 'speaker_images_save_method_add' do %>
+          <%= radio_button_tag 'speaker_images_save_method', 'add', selected: true %> <span>agregar</span>
+        <% end %>
+        <%= label_tag 'speaker_images_save_method_replace' do %>
+          <%= radio_button_tag 'speaker_images_save_method', 'replace' %> <span>reemplazar</span>
+        <% end %>
+        <%= label_tag 'speaker_images_save_method_destroy' do %>
+          <%= radio_button_tag 'speaker_images_save_method', 'destroy' %> <span>borrar todas</span>
+        <% end %>
       <% end %>
     <% end %>
     <%= file_field_tag 'speaker_images[]', multiple: true, accept: 'image/*', class: 'form-control' %>

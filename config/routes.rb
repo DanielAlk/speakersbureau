@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       get 'empty'
     end
   end
-  get 'contacto' => 'contacts#new', as: :new_contact
+  get 'contacto(/:speaker_id)' => 'contacts#new', as: :new_contact
   resources :contacts, path: 'contactos'
   
   get 'tb-asociados' => 'static_pages#brand', as: :brand
