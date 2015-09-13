@@ -82,5 +82,5 @@
 <% end %>
 
 <% content_for :extra_js do %>
-  Utils.speakersForm(<%= selected_areas(@speaker.areas) %>, <%= @speaker.videos_url.to_s.html_safe %>);
+  Utils.speakersForm(<%= @speaker.area_titles.to_s.html_safe %>, <%= @speaker.videos_url.to_s.html_safe %>);
 <% end %>

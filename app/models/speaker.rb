@@ -28,15 +28,6 @@ class Speaker < ActiveRecord::Base
 		return videos_url
 	end
 
-	def area_list
-		last_index = self.areas.count-1
-		output = ''
-		self.areas.each_with_index do |a, i|
-			output << a.title + (i != last_index ? ', ' : '.')
-		end
-		output
-	end
-
 	def area_titles
 		area_titles = []
 		self.areas.each do |a|
