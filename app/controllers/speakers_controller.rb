@@ -133,7 +133,7 @@ class SpeakersController < ApplicationController
 					unless sp_area_titles.include? param
 						a = Area.new(title: param)
 						unless a.save 
-							a = Area.find_by(title: I18n.transliterate(param))
+							a = Area.find_by(title: param)
 						end
 						@speaker.speaker_areas.create(area: a)
 					end
