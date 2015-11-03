@@ -40,8 +40,12 @@ module HeadHelper
 		case params['controller']
 		when 'speakers'
 			if params['action'] != 'index' and @speaker.present? and @speaker.description?
-				@speaker.description
+				description = @speaker.description
 			end
+		end
+
+		if description.present?
+			description
 		else
 			'TB & Asociados, Productora de contenidos.'
 		end
