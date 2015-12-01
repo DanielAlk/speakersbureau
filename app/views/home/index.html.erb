@@ -1,4 +1,4 @@
-<%= render 'speakers/carousel', speakers: @speakers.where(:visible_on_home => true) %>
+<%= render 'speakers/carousel', speakers: @carouselSpeakers %>
 <%= render 'speakers/thumbs', speakers: @speakers.sample(12) %>
 <%= render 'posts/highlighted', post: @last_post %>
 <%= render 'speakers/search' %>
