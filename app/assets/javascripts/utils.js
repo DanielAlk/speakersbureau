@@ -38,10 +38,9 @@ Utils.newContactForm = function() {
 	});
 };
 
-Utils.speakersForm = function(areas, videos) {
+Utils.speakersForm = function(areas) {
 	$('select.dropdown').dropdown({ allowAdditions: true });
 	$('.dropdown.multiple.speaker-areas-dropdown').dropdown('set selected', areas);
-	$('.dropdown.multiple.speaker-videos-dropdown').dropdown('set selected', videos);
 	$('label[for=speaker_images_save_method] input[type=radio]').change(function(e) {
 	  if (this.value == 'destroy' && this.checked) $('#speaker_images_').prop('disabled', true);
 	  else $('#speaker_images_').prop('disabled', false);
@@ -63,4 +62,33 @@ Utils.deleteSpeakerImages = function(selector) {
 			$(this).remove();
 		});
 	});
+};
+
+Utils.multipleInputs = function() {
+	var $multiples = $('[data-multiple]');
+	var id = $multiples.get(0).id;
+	id = id.substr(0,id.length-1);
+	var appendClone = function(do_it_anyway) {
+		if (do_it_anyway === true || $(this).is($multiples.last())) {
+			var $clone = $multiples.last().clone().val(null).attr('id', id+$multiples.length);
+			$multiples.parent().append($clone);
+			$multiples = $('[data-multiple]');
+		};
+	};
+	var removeClones = function($multiple) {
+		$multiple = $(this);
+		if (!$multiple.val()) {
+			$multiples.each(function(){
+				var $multiple = $(this);
+				if (!$multiple.val()) $multiple.remove();
+			});
+			$multiples = $('[data-multiple]');
+			$multiples.each(function(i){
+				$(this).attr('id', id+i);
+			});
+			appendClone(true);
+		};
+	};
+	$(document).on('focusout','[data-multiple]',removeClones);
+	$(document).on('focusin','[data-multiple]',appendClone);
 };

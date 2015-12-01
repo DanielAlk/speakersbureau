@@ -111,7 +111,7 @@ class SpeakersController < ApplicationController
 					end
 				end
 				params['speaker_videos'].each do |video|
-					unless video_urls.include? video
+					unless video_urls.include? video or not video.include? 'https://www.youtube.com/watch?v='
 						@speaker.speaker_videos.create(url: video)
 					end
 				end
