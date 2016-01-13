@@ -12,10 +12,11 @@ Utils.init = function() {
 	  action: function(text, value) {
 	    window.location.href = value;
 	  },
-	  match: 'text',
 	  onShow: function() {
 	    $(this).find('input').focus();
-	  }
+	  },
+	  match: 'text',
+	  fullTextSearch: true
 	});
 	$(document).on('click', '.speaker-preview-box img, .speaker-preview-box h3, .preview-posts h2, .highlighted-post h2', function(e) {
 		$(this).parent().find('a').get(0).click();
