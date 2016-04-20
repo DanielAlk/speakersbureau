@@ -14,7 +14,10 @@ class HomeController < ApplicationController
   private
 
   	def render_bulat_team
-  		render action: :bulat_team, layout: 'bulat_team' if @is_domain_bulat
+  		if @is_domain_bulat
+	  		@bulat_team_members = BulatTeamMember.all
+	  		render action: :bulat_team, layout: 'bulat_team'
+	  	end
   	end
 
 end

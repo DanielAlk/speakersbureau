@@ -17,6 +17,7 @@
 //= require jquery.validate.additional-methods
 //= require jquery.validate.localization/messages_es_AR
 //= require tinymce-jquery
+//= require bootstrap-colorpicker
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .

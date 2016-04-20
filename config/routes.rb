@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   end
   get 'contacto(/:speaker_id)' => 'contacts#new', as: :new_contact
   resources :contacts, path: 'contactos'
+
+  resources :bulat_team_members
   
   #get 'tb-asociados' => 'static_pages#brand', as: :brand
 

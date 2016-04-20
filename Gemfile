@@ -43,6 +43,7 @@ gem 'devise', '3.4.1'
 gem 'ransack'
 gem 'browser'
 gem 'acts_as_list'
+gem 'bootstrap-colorpicker-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

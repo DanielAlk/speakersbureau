@@ -2,7 +2,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
 # before_filter :configure_sign_up_params, only: [:create]
 # before_filter :configure_account_update_params, only: [:update]
   skip_before_filter :require_no_authentication, only: [:new, :create]
-  layout 'admin'
+  layout :choose_layout
 
   # GET /resource/sign_up
   def new
@@ -100,4 +100,15 @@ class Admins::RegistrationsController < Devise::RegistrationsController
         @minimum_password_length = resource_class.password_length.min
       end
     end
+
+  private
+    
+    def choose_layout
+      if @is_domain_bulat
+        'bulat_team'
+      else
+        'admin'
+      end
+    end
+    
 end

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @bulat_team_member.title %>
+</p>
+
+<p>
+  <strong>Link:</strong>
+  <%= @bulat_team_member.link %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @bulat_team_member.image %>
+</p>
+
+<%= link_to 'Edit', edit_bulat_team_member_path(@bulat_team_member) %> |
+<%= link_to 'Back', bulat_team_members_path %>

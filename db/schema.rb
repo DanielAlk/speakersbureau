@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201090948) do
+ActiveRecord::Schema.define(version: 20160420183121) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "",        null: false
@@ -41,6 +41,18 @@ ActiveRecord::Schema.define(version: 20151201090948) do
 
   add_index "areas", ["slug"], name: "index_areas_on_slug", unique: true, using: :btree
   add_index "areas", ["title"], name: "index_areas_on_title", unique: true, using: :btree
+
+  create_table "bulat_team_members", force: :cascade do |t|
+    t.string   "title",              limit: 255
+    t.string   "link",               limit: 255
+    t.string   "image_file_name",    limit: 255
+    t.string   "image_content_type", limit: 255
+    t.integer  "image_file_size",    limit: 4
+    t.datetime "image_updated_at"
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.string   "color",              limit: 255
+  end
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name",                limit: 255

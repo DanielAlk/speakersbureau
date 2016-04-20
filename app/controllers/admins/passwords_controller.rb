@@ -1,5 +1,5 @@
 class Admins::PasswordsController < Devise::PasswordsController
-  layout 'admin'
+  layout :choose_layout
   # GET /resource/password/new
   # def new
   #   super
@@ -30,4 +30,13 @@ class Admins::PasswordsController < Devise::PasswordsController
   # def after_sending_reset_password_instructions_path_for(resource_name)
   #   super(resource_name)
   # end
+  private
+    
+    def choose_layout
+      if @is_domain_bulat
+        'bulat_team'
+      else
+        'admin'
+      end
+    end
 end
