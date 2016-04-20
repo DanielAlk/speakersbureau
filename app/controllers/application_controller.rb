@@ -4,9 +4,14 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
   before_action :ransack_search_object
+  before_action :is_domain_bulat
 
   def routing_error(error = 'Routing error', status = :not_found, exception=nil)
     render template: 'static_pages/404.html.erb', status: 404, content_type: 'text/html'
+  end
+
+  def is_domain_bulat
+    @is_domain_bulat = request.domain[/#{ENV['BULAT_TEAM_DOMAIN']}/]
   end
 
   private

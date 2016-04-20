@@ -1,7 +1,7 @@
 class AdminsController < ApplicationController
 	before_action :authenticate_admin!
   before_action :set_admin, only: :destroy
-	layout 'admin'
+	layout :choose_layout
   def index
   end
 
@@ -26,5 +26,13 @@ class AdminsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_admin
       @admin = Admin.find(params[:id])
+    end
+
+    def choose_layout
+      if @is_domain_bulat
+        'bulat_team'
+      else
+        'admin'
+      end
     end
 end
